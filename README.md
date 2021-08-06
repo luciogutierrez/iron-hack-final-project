@@ -1,12 +1,13 @@
 ![Marvel](./imgs/marvel.png)
 
-# Project: Marvel API data request
+# Ironhack final project
+
+# Name: Marvel Comics's data analysis
 
 ## Overview
-
-The goal of the project is successfully obtain a response, request data from Marvel API and convert it into a Pandas data frame and finally export it as a CSV file. 
-
----
+The project's goal is get data from Marvel API and use python to deploy a webpage
+showing statistic information about Marvel's world, including a Machine Learning Model
+to classify several comics related groups.
 
 ## Technical Requirements
 * Obtain data from **Marvel's API** using requests library.
