@@ -3,12 +3,12 @@
 <!-- ![Marvel](./imgs/avengers.gif) -->
 <img src="./imgs/avengers.gif" alt="drawing" height='250' width="1000"/>
 
-# Marvel heros data gathering, analysis and ML model building
+# Marvel heros data gathering, analysis and deploying, including clusterization Unsupervised ML model.
 
 ## Overview
 The project's goal is gathering data from Marvel API and use python to deploy a webpage
 showing statistic information about Marvel's world, including a Machine Learning Model
-to classify several heros related groups.
+to classify heros in several related groups.
 
 ## Technical Requirements
 * Obtain data from **Marvel's API** using requests library.
