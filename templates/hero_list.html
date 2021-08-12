@@ -20,7 +20,8 @@
                            <td>{{ loop.index }}</td>
                            <td>{{ heros['data'][i]['hero_name'] }}</td>
                            <td>{{ heros['data'][i]['hero_desc'] }}
-                              <a href="{{ heros['data'][i]['hero_url'] }}" target="_blank">{{ heros['data'][i]['hero_url'] }}</a>
+                              <a href="{{ heros['data'][i]['hero_url'] }}" target="_blank">
+                                  {{ heros['data'][i]['hero_url'] }}</a>
                            </td>
                            <td><img src="{{ heros['data'][i]['hero_img'] }}" alt="" class="img-thumbnail"></td>
                        </tr> 

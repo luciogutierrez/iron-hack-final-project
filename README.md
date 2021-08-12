@@ -1,7 +1,7 @@
 # Ironhack final project
 
 <!-- ![Marvel](./imgs/avengers.gif) -->
-<img src="./imgs/avengers.gif" alt="drawing" height='250' width="1000"/>
+<img src="./static/avengers.gif" alt="drawing" height='250' width="1000"/>
 
 # Marvel heros data gathering, analysis and deploying, including clusterization Unsupervised ML model.
 
@@ -29,3 +29,4 @@ to classify heros in several related groups.
 * [Marvel's developers web page](https://developer.marvel.com/)
 * [Requests Library Documentation: Quickstart](http://docs.python-requests.org/en/master/user/quickstart/)
 * [Marvel's dataset](https://www.kaggle.com/dannielr/marvel-superheroes)
+* [Flask: Quickstart](https://flask.palletsprojects.com/en/2.0.x/quickstart/)

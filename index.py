@@ -1,4 +1,3 @@
-# %%
 import requests
 from flask import Flask, render_template
 
@@ -13,6 +12,7 @@ def get_key(key):
         app_key = file_read.readline()
     return app_key
 
+# solicitud de conexion a la api de marvel
 def get_superheros():
     # get credentials
     apikey = get_key('apikey')
@@ -38,11 +38,18 @@ def get_superheros():
     except requests.exceptions.RequestException as error:
         print(error.response.text)
 
-
+# instanciación de Flask
 app = Flask(__name__)
 
+# definición del root de la aplicación
 @app.route('/')
+@app.route('/home')
 def home():
+    return render_template('index.html')
+
+# lista de heroes y urls
+@app.route('/heros_list') 
+def hero_list():
     superheros = get_superheros()
     list_sh = superheros['data']['results']
 
@@ -61,10 +68,9 @@ def home():
         item['hero_img'] = imageUrl
         item['hero_url'] = hero['urls'][0]['url']
         add_hero(item)
-
     longitud = len(list_sh)
+    return render_template('hero_list.html', heros=heros, longitud=longitud)
 
-    return render_template('home.html', heros=heros, longitud=longitud)
 
 @app.route('/about') 
 def about():

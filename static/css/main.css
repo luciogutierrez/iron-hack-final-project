@@ -38,3 +38,10 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
