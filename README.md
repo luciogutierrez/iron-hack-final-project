@@ -3,12 +3,29 @@
 <!-- ![Marvel](./imgs/avengers.gif) -->
 <img src="./static/avengers.gif" alt="drawing" height='250' width="1000"/>
 
-# Marvel heros data gathering, analysis and deploying, including clusterization Unsupervised ML model.
+# Marvel Superheros Data Analysis
 
 ## Overview
-The project's goal is gathering data from Marvel API and use python to deploy a webpage
-showing statistic information about Marvel's world, including a Machine Learning Model
-to classify heros in several related groups.
+The project's goal is to show the knowledge acquired along Data Analysys bootcamp given by Ironhack Mexico.
+We chosed Marvel's Superheroes theme as it has the necessary elements to help work on the 4 topics we will cover in this project:
+
+* 1- Api Requests
+* 2- Data Visualization
+* 3- Supervised Machine Learning model
+* 4- Unsupervised Machine Learning model
+
+## Api Requests
+In this section we will use python "requests" method to connect to the Marvel Api.
+We will download information of our favorite super heroes which we will use to generate an online catalog to access the web page of each one of them.
+
+## Data Visualization
+In this section we will create and interpret different types of visualizations to better understand the Marvel dataset we are working with.
+
+## Supervised Machine Learning model
+In this section we will work on a supervised learning model to predict whether the alignment of a superhero is good or evil.
+
+## Unsupervised Machine Learning model
+In this section we will work on a unsupervised learning model to classify superheros in diferent groups according to their main features.
 
 ## Technical Requirements
 * Obtain data from **Marvel's API** using requests library.

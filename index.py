@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 from flask import Flask, render_template
 
 # construct url with dinamic folders
@@ -48,8 +49,8 @@ def home():
     return render_template('index.html')
 
 # lista de heroes y urls
-@app.route('/heros_list') 
-def hero_list():
+@app.route('/api_request') 
+def api_request():
     superheros = get_superheros()
     list_sh = superheros['data']['results']
 
@@ -69,9 +70,41 @@ def hero_list():
         item['hero_url'] = hero['urls'][0]['url']
         add_hero(item)
     longitud = len(list_sh)
-    return render_template('hero_list.html', heros=heros, longitud=longitud)
+    return render_template('api_request.html', heros=heros, longitud=longitud)
 
+# definición de la pagina de data visualization
+@app.route('/data_vis')
+def data_vis():
+    data = pd.read_csv('./outputs/marvel_data.csv')
+    df = data.groupby(['Gender']).agg({'Count':'sum'}).reset_index()
+    labels = df.Gender.to_list()
+    values = df.Count.to_list()
+    # data=[
+    #     ('01-01-2020',1597),
+    #     ('02-01-2020',1456),
+    #     ('03-01-2020',1908),
+    #     ('04-01-2020',896),
+    #     ('05-01-2020',755),
+    #     ('06-01-2020',453),
+    #     ('07-01-2020',1100),
+    #     ('08-01-2020',1235),
+    #     ('09-01-2020',1478)
+    #       ]
+    # labels = [row[0] for row in data]
+    # values = [row[1] for row in data]
+    return render_template('data_vis.html', labels=labels, values=values)
 
+# definición de la pagina de modelo supervisado
+@app.route('/sml_model')
+def sml_model():
+    return render_template('sml_model.html')
+
+# definición de la pagina de model no supervisado
+@app.route('/uml_model')
+def uml_model():
+    return render_template('uml_model.html')
+
+# definición de pagina acerca de...
 @app.route('/about') 
 def about():
     notas = ("nota1","nota2","nota3","nota4","nota5","nota6")

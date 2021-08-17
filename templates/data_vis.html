@@ -1,0 +1,40 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="col-xs-10 col-sm-6 col-md-6">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: relative">
+                <canvas id="myChart" height="50" width="100"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block javascript %}
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ labels | safe}},
+    datasets: [{
+        label: 'Marvel Demographic distribution',
+        data: '{{ values | safe}}',
+        fill: false,
+        borderColor: 'rbg(75,192,192)',
+        lineTension: 0.1
+    }]
+        },
+    options: {
+        responsive: true,
+            legend: {
+            display: false
+        },
+        title: {
+            display: true,
+                text: 'Marvel Superheros Demographic'
+        }
+    }
+  });
+</script>
+{% endblock%} {% endblock %}
