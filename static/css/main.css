@@ -45,3 +45,15 @@ a:active {
   margin-right: auto;
   width: 50%;
 }
+
+.paragraph {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.title {
+  color: Aqua;
+  background-color: transparent;
+  text-decoration: none;
+}

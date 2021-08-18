@@ -1,26 +1,72 @@
 {% extends "layout.html" %} {% block content %}
-
-<div class="col-xs-10 col-sm-6 col-md-6">
+<!-- BarChart Gender distribution -->
+<div>
+  <div class="entry-content">
+    <h3 class="title">Gender distribution</h3>
+    <p class="paragraph">
+      Out of a total of 344 characters, 225 are male, 96 are female and 23 are
+      unclassified.
+    </p>
+  </div>
+  <div class="col-xs-10 col-sm-6 col-md-6">
     <div class="card card-style mb-2">
-        <div class="card-body">
-            <div class="chart-container" style="position: relative">
-                <h1>Superhero Gender Distribution</h1>
-                <canvas id="myChart" height="50" width="100"></canvas>
-            </div>
+      <div class="card-body">
+        <div class="chart-container" style="position: relative">
+          <canvas id="barChartGender" height="50" width="100"></canvas>
         </div>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- BarChart Alignment distribution -->
+<div>
+  <div class="entry-content">
+    <h3 class="title">Alignment distribution</h3>
+    <p class="paragraph">
+      Out of a total of 344 characters, 241 are good, 98 are bad and 5 are neutral.
+    </p>
+  </div>
+  <div class="col-xs-10 col-sm-6 col-md-6">
+    <div class="card card-style mb-2">
+      <div class="card-body">
+        <div class="chart-container" style="position: relative">
+          <canvas id="barChartAlignment" height="50" width="100"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- wordCloud Race distribution -->
+<div>
+  <div class="entry-content">
+    <h3 class="title">Race distribution</h3>
+    <p class="paragraph">
+      In Marvel's world there are characters of various races, humans, mutants, symbiotes and others, although most of them are undefined as you can see in the following graph.</p>
+  </div>
+  <div class="col-xs-10 col-sm-6 col-md-6">
+    <div class="card card-style mb-2">
+      <div class="card-body">
+        <div class="chart-container" style="position: relative">
+          <div id="wordCloudRace" style="height:300px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% block javascript %}
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
+    // BarChart Gender Distribution
+    var ctx = document.getElementById('barChartGender').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: {{ labels | safe}},
+            labels: {{ labels[0] | safe }},
     datasets: [{
-        label: 'Superhero Gender distribution',
-        data: {{ values | safe}},
+        label: 'Gender distribution',
+        data: {{ values[0] | safe }},
         fill: true,
         lineTension: 0.1,
         backgroundColor: [
@@ -33,19 +79,49 @@
         'rgba(54, 162, 235, 1)',
         'rgba(255, 206, 86, 1)'
     ],
-        borderWidth: 1        
+        borderWidth: 1
     }]
-        },
-    options: {
-        responsive: true,
-            legend: {
-            display: false
-        },
-        title: {
-            display: true,
-                text: 'Marvel Superheros Demographic'
         }
-    }
+  });
+
+    // BarChart Aligment Distribution
+    var ctx = document.getElementById('barChartAlignment').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ labels[1] | safe }},
+    datasets: [{
+        label: 'Alignment distribution',
+        data: {{ values[1] | safe }},
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)'
+    ],
+        borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'
+    ],
+        borderWidth: 1
+    }]
+        }
   });
 </script>
+
+<script>
+    anychart.onDocumentReady(function () {
+        var data = {{ dictionary | safe }};
+        var chart = anychart.tagCloud(data);
+        chart.title('More races present ')
+        chart.angles([0])
+        chart.colorRange(false);
+        chart.colorRange().length('80%');
+        chart.container("wordCloudRace");
+        chart.draw();
+    });
+</script>
+
 {% endblock%} {% endblock %}

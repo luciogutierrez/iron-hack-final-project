@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 from flask import Flask, render_template
+data = pd.read_csv('./outputs/marvel_data.csv')
 
 # construct url with dinamic folders
 def url_fun(*args):
@@ -75,24 +76,24 @@ def api_request():
 # definición de la pagina de data visualization
 @app.route('/data_vis')
 def data_vis():
-    data = pd.read_csv('./outputs/marvel_data.csv')
+    labels = []
+    values = []
+    # Barchart gender distribution
     df = data.groupby(['Gender']).agg({'Count':'sum'}).reset_index()
-    labels = df.Gender.to_list()
-    values = df.Count.to_list()
-    # data=[
-    #     ('01-01-2020',1597),
-    #     ('02-01-2020',1456),
-    #     ('03-01-2020',1908),
-    #     ('04-01-2020',896),
-    #     ('05-01-2020',755),
-    #     ('06-01-2020',453),
-    #     ('07-01-2020',1100),
-    #     ('08-01-2020',1235),
-    #     ('09-01-2020',1478)
-    #       ]
-    # labels = [row[0] for row in data]
-    # values = [row[1] for row in data]
-    return render_template('data_vis.html', labels=labels, values=values)
+    labels.append(df.Gender.to_list())
+    values.append(df.Count.to_list())
+    
+    # Barchart gender distribution
+    df = data.groupby(['Alignment']).agg({'Count':'sum'}).reset_index()
+    labels.append(df.Alignment.to_list())
+    values.append(df.Count.to_list())
+    
+    # wordCloud Race distribution
+    df = data.groupby(['Race2']).agg({'Count':'sum'}).reset_index()
+    df.rename(columns={'Race2':'x', 'Count':'value'}, inplace=True)
+    dictionary = df.to_dict('records')
+    
+    return render_template('data_vis.html', labels=labels, values=values, dictionary=dictionary)
 
 # definición de la pagina de modelo supervisado
 @app.route('/sml_model')
@@ -112,3 +113,16 @@ def about():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    # data=[
+    #     ('01-01-2020',1597),
+    #     ('02-01-2020',1456),
+    #     ('03-01-2020',1908),
+    #     ('04-01-2020',896),
+    #     ('05-01-2020',755),
+    #     ('06-01-2020',453),
+    #     ('07-01-2020',1100),
+    #     ('08-01-2020',1235),
+    #     ('09-01-2020',1478)
+    #       ]
+    # labels = [row[0] for row in data]
+    # values = [row[1] for row in data]
