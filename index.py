@@ -93,7 +93,13 @@ def data_vis():
     df.rename(columns={'Race2':'x', 'Count':'value'}, inplace=True)
     dictionary = df.to_dict('records')
     
-    return render_template('data_vis.html', labels=labels, values=values, dictionary=dictionary)
+    # columnChart    
+    table = pd.pivot_table(data, values='Power_Rank', index='Gender', columns='Alignment', aggfunc='sum').reset_index()
+    table = table.fillna(0)
+    headers = list(table.columns.values)
+    rows = table.values.tolist()
+    
+    return render_template('data_vis.html', labels=labels, values=values, dictionary=dictionary, headers=headers, rows=rows)
 
 # definición de la pagina de modelo supervisado
 @app.route('/sml_model')
@@ -113,16 +119,3 @@ def about():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    # data=[
-    #     ('01-01-2020',1597),
-    #     ('02-01-2020',1456),
-    #     ('03-01-2020',1908),
-    #     ('04-01-2020',896),
-    #     ('05-01-2020',755),
-    #     ('06-01-2020',453),
-    #     ('07-01-2020',1100),
-    #     ('08-01-2020',1235),
-    #     ('09-01-2020',1478)
-    #       ]
-    # labels = [row[0] for row in data]
-    # values = [row[1] for row in data]

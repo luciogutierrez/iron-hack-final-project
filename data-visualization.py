@@ -96,79 +96,9 @@ df = replace_null_values(df, 'Race', '-', 'undefined')
 df = make_race_category(df)
 save_df_to_csv(df)
 # df.info()
-df.Race.value_counts()
-
-# Data Visualization
-# Demographic distribution
-# sns.barplot(data=df, x='Gender', y='Count', hue='Alignment', estimator=sum, palette='hls')
-# sns.boxplot(data=df, x='Alignment', y='Power_Rank')
-
-# fig = px.bar(df, x='Gender', y='Count', color='Alignment', barmode='group')
-# fig.update_layout(
-#     margin=dict(l=20, r=20, t=20, b=20),
-#     paper_bgcolor="LightSteelBlue",
-# )
-# fig.show()
 
 # data = pd.read_csv('./outputs/marvel_data.csv')
-# labels = df.Gender.to_list()
-# values = df.Count.to_list()
-# print(labels, values)
-# df = data.groupby(['Race2']).agg({'Count':'sum'}).reset_index()
-# df.rename(columns={'Race2':'x', 'Count':'value'}, inplace=True)
-# df.to_dict('records')
-
-# new_list = []
-# for a_list in race_dict.data:
-#     new_dict = dict(a_list)
-#     new_list.append(new_dict)
-# new_list
-# labels = df.Race2
-# values = df.Count
-# map_lab = list(map(lambda x: "'x'"+':'+"'"+x+"'", labels))
-# map_val = list(map(lambda x: "'value'"+':'+str(x), values))
-# print(list(map_lab))
-# print(list(map_val))
-# zip_val = zip(map_lab, map_val)
-# tuples_list = list(zip_val)
-# tuples_list
-
-
-
-
-
-# def drop_comilla(s):
-#     s = ''.join(ch for ch in s if ch != '"')
-#     return s
-
-# new_list = [(drop_comilla(a), drop_comilla(b)) for a, b in tuples_list]
-# new_list
-
-
-# dictionary = df.to_dict('list')
-# dictionary
-# Power Rank
-# data = pd.read_csv('./outputs/marvel_data.csv')
-# data.head()
-# df = data.groupby(['Race']).agg({'Count':'sum'}).reset_index()
-# labels = df.Race.to_list()
-# values = df.Count.to_list()
-# print(labels, values)
-
-# data.Race.value_counts().sort_values(ascending=False)
-
-# data=[
-#     ('01-01-2020',1597),
-#     ('02-01-2020',1456),
-#     ('03-01-2020',1908),
-#     ('04-01-2020',896),
-#     ('05-01-2020',755),
-#     ('06-01-2020',453),
-#     ('07-01-2020',1100),
-#     ('08-01-2020',1235),
-#     ('09-01-2020',1478)
-#         ]
-# labels = [row[0] for row in data]
-# values = [row[1] for row in data]
-
-# print(labels, values)
+# table = pd.pivot_table(data, values='Power_Rank', index='Gender', columns='Alignment', aggfunc=np.sum).reset_index()
+# headers = list(table.columns.values)
+# table = table.fillna(0)
+# table.head()

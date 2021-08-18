@@ -1,23 +1,31 @@
 {% extends "layout.html" %} {% block content %}
-<h1 style="color:red" class="text-center">Data Visualization</h1>
+<h1 style="color: red" class="text-center">Data Visualization</h1>
+
 <!-- Marvel Dataset-->
 <div class="entry-content">
   <h3 class="title">Marvel Dataset</h3>
   <p class="paragraph">
-    The project is based on the kaggle dataset "Marvel Superheros" which you can access in the following link:
-    <br>
-    <a href="https://www.kaggle.com/dannielr/marvel-superheroes"  target="_blank">https://www.kaggle.com/dannielr/marvel_superheros</a>
-    <br>
-    In fact the source contains several datasets so the first task we had to do was to analyze the content of each one and define the data we would use for our project. At the end we have a dataset that consists of 344 records and 15 columns.
+    The project is based on the kaggle dataset "Marvel Superheros" which you can
+    access in the following link:
+    <br />
+    <a href="https://www.kaggle.com/dannielr/marvel-superheroes" target="_blank"
+      >https://www.kaggle.com/dannielr/marvel_superheros</a
+    >
+    <br />
+    In fact the source contains several datasets so the first task we had to do
+    was to analyze the content of each one and define the data we would use for
+    our project. At the end we have a dataset that consists of 344 records and
+    15 columns.
   </p>
 </div>
+
 <!-- BarChart Gender distribution -->
 <div>
   <div class="entry-content">
     <h3 class="title">Gender distribution</h3>
     <p class="paragraph">
-      About gender distribution we have that 225 are male, 96 are female and 23 are
-      unclassified.
+      About gender distribution we have that 225 are male, 96 are female and 23
+      are unclassified.
     </p>
   </div>
   <div class="col-xs-10 col-sm-6 col-md-6">
@@ -36,7 +44,8 @@
   <div class="entry-content">
     <h3 class="title">Alignment distribution</h3>
     <p class="paragraph">
-      241 of them are alignment as good, while 98 are alignment as bad and 5 are neutral.
+      241 of them are alignment as good, while 98 are alignment as bad and 5 are
+      neutral.
     </p>
   </div>
   <div class="col-xs-10 col-sm-6 col-md-6">
@@ -55,13 +64,36 @@
   <div class="entry-content">
     <h3 class="title">Race distribution</h3>
     <p class="paragraph">
-      Talking about race, we have various kind of characters like humans, mutants, symbiotes and others, although most of them are undefined as you can see in the following graph.</p>
+      Talking about race, we have various kind of characters like humans,
+      mutants, symbiotes and others, although most of them are undefined as you
+      can see in the following graph.
+    </p>
   </div>
   <div class="col-xs-10 col-sm-6 col-md-6">
     <div class="card card-style mb-2">
       <div class="card-body">
         <div class="chart-container" style="position: relative">
-          <div id="wordCloudRace" style="height:300px;"></div>
+          <div id="wordCloudRace" style="height: 300px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- barChartPower average power -->
+<div>
+  <div class="entry-content">
+    <h3 class="title">Level of power by gender</h3>
+    <p class="paragraph">
+      The level of power is higher on the side of the good guys, and male
+      characters have more power than female.
+    </p>
+  </div>
+  <div class="col-xs-10 col-sm-6 col-md-6">
+    <div class="card card-style mb-2">
+      <div class="card-body">
+        <div class="chart-container" style="position: relative">
+          <div id="barChartPower" style="height: 300px"></div>
         </div>
       </div>
     </div>
@@ -99,7 +131,7 @@
     // BarChart Aligment Distribution
     var ctx = document.getElementById('barChartAlignment').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'doughnut',
+        type: 'polarArea',
         data: {
             labels: {{ labels[1] | safe }},
     datasets: [{
@@ -124,16 +156,49 @@
 </script>
 
 <script>
-    anychart.onDocumentReady(function () {
-        var data = {{ dictionary | safe }};
-        var chart = anychart.tagCloud(data);
-        chart.title('More races present ')
-        chart.angles([0])
-        chart.colorRange(false);
-        chart.colorRange().length('80%');
-        chart.container("wordCloudRace");
-        chart.draw();
+  anychart.onDocumentReady(function () {
+      var data = {{ dictionary | safe }};
+      var chart = anychart.tagCloud(data);
+      chart.title('More races presented')
+      chart.angles([0])
+      chart.colorRange(false);
+      chart.colorRange().length('80%');
+      chart.container("wordCloudRace");
+      chart.draw();
+  });
+</script>
+
+<script>
+  // Radar Chart
+  anychart.onDocumentReady(function () {
+      // create data set on our data
+      var data = {
+        title: 'Level of power by gender',
+        header: {{ headers | safe }},
+        rows: {{ rows | safe }}
+      };
+      var chart = anychart.column();
+      chart.data(data);
+      chart.animation(true);
+      chart.yAxis().title('level of Power');
+      chart
+        .labels()
+        .enabled(true)
+        .position('center-top')
+        .anchor('center-bottom');
+      chart.hovered().labels(false);
+      chart.legend().enabled(true).fontSize(13).padding([0, 0, 20, 0]);
+      chart.interactivity().hoverMode('single');
+      chart
+        .tooltip()
+        .positionMode('point')
+        .position('center-top')
+        .anchor('center-bottom')
+        .offsetX(0)
+        .offsetY(5);
+      chart.container('barChartPower');
+      chart.draw();
     });
 </script>
 
-{% endblock%} {% endblock %}
+{% endblock %} {% endblock %}

@@ -1,35 +1,62 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
+<h1 style="color: red" class="text-center">Api Request</h1>
 
-<!-- <div class="row">
-    <div>
-        <h1 style="color: white;"> Api Request</h1>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Imagen</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for i in range(longitud) %}
-                       <tr>
-                           <td>{{ loop.index }}</td>
-                           <td>{{ heros['data'][i]['hero_name'] }}</td>
-                           <td>{{ heros['data'][i]['hero_desc'] }}
-                              <a href="{{ heros['data'][i]['hero_url'] }}" target="_blank">
-                                  {{ heros['data'][i]['hero_url'] }}</a>
-                           </td>
-                           <td><img src="{{ heros['data'][i]['hero_img'] }}" alt="" class="img-thumbnail"></td>
-                       </tr> 
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+<!-- Marvel Dataset-->
+<div class="entry-content">
+  <h3 class="title">Marvel's Api description</h3>
+  <p class="paragraph">
+      The Marvel Comics API allows developers around the world to access
+      information about Marvel's vast library of comics, from what's coming soon
+      to what happened since 70 years ago. the link to access the api is shown
+      below:
+      <br />
+      <a href="https://developer.marvel.com/" target="_blank"
+      >https://developer.marvel.com/</a
+      >
+      <br />
+      Consumption of the Marvel online Api, and from the data obtained we extract
+      the name, description, image and url to obtain more information about each
+      character.
+    </p>
+</div>
+
+<div class="row">
+  <h3 class="title">Data extracted online from the Api</h3>
+  <div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in range(longitud) %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ heros['data'][i]['hero_name'] }}</td>
+            <td>
+              {{ heros['data'][i]['hero_desc'] }}
+              <a href="{{ heros['data'][i]['hero_url'] }}" target="_blank">
+                {{ heros['data'][i]['hero_url'] }}</a
+              >
+            </td>
+            <td>
+              <img
+                src="{{ heros['data'][i]['hero_img'] }}"
+                alt=""
+                class="img-thumbnail"
+              />
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
-</div> -->
+  </div>
+</div>
 
 {% endblock %}
