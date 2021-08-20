@@ -1,55 +1,72 @@
 {% extends "layout.html" %} {% block content %}
-
-<div id="content-wrapper" class="container flex">
-
-    <h1 style="color:red" class="text-center">Ironhack DATAMEXPT2021 final project</h1>
-
-    <div class="entry-content">
-        <h2 class="title">Marvel Superheros Data Analysis</h2>
-        <p class="paragraph">
-            The project's goal is to show the knowledge acquired along Data Analysys bootcamp given by Ironhack Mexico.
-            </br>
-            We chosed Marvel's Superheroes theme as it has the necessary elements to help work on the 4 topics we will
-            cover in this project:
-        <ol class="paragraph">
-            <li>Api Requests</li>
-            <li>Data Visualization</li>
-            <li>Supervised Machine Learning model</li>
-            <li>Unsupervised Machine Learning model</li>
-        </ol>
-        </p>
-    </div>
-
-    <div class="entry-content">
-        <h3 class="title">Api Requests</h3>
-        <p class="paragraph">
-            In this section we will use python "requests" method to connect to the Marvel Api.
-            </br>
-            We will download information of our favorite super heroes which we will use to generate
-            an online catalog to access the web page of each one of them.
-        </p>
-    </div>
-
-    <div class="entry-content">
-        <h3 class="title">Data Visualization</h3>
-        <p class="paragraph">
-            In this section we will create and interpret different types of visualizations to better understand the Marvel dataset we are working with.
-        </p>
-    </div>
-
-    <div class="entry-content">
-        <h3 class="title">Supervised Machine Learning model</h3>
-        <p class="paragraph">
-            In this section we will work on a supervised learning model to predict whether the alignment of a superhero is good or evil.
-        </p>
-    </div>
-
-    <div class="entry-content">
-        <h3 class="title">Unsupervised Machine Learning model</h3>
-        <p class="paragraph">
-            In this section we will work on a unsupervised learning model to classify superheros in diferent groups according to their main features.
-        </p>
-    </div>
+<h1 style="color:red" class="text-center">Ironhack DATAMEXPT2021 final project</h1>
+<h4 class="title" style="display:inline;">Project name</h4>
+<h2> Marvel Characters Data Analysis</h2>
+<hr style="clear:none;"/>
+<div class="entry-content">
+    <!-- Main Table for introduction -->
+    <table class="table table-striped table-bordered table-dark">
+        <tbody class="thead-dark">
+            <tr>
+                <th>
+                    <h4 class="title">Objective</h4>
+                </th>
+                <th>
+                    The project's goal is to show the knowledge acquired along Data Analysys bootcamp given by
+                    Ironhack Mexico.
+                    </br>
+                    We chosed Marvel's Superheroes theme as it has the necessary elements to help work on the 4
+                    topics we will
+                    cover in this project:
+                    <ol class="paragraph">
+                        <li>Api Requests</li>
+                        <li>Data Visualization</li>
+                        <li>Supervised ML model</li>
+                        <li>Unsupervised ML model</li>
+                    </ol>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h4 class="title">Api Requests</h4>
+                </th>
+                <th>
+                    In this section we will use python "requests" method to connect to the Marvel Api.
+                    </br>
+                    We will download information of our favorite super heroes which we will use to generate
+                    an online catalog to access the web page of each one of them.
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h4 class="title">Data Visualization</h4>
+                </th>
+                <th>
+                    In this section we will create and interpret different types of visualizations to better
+                    understand the Marvel dataset we are working with.
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h4 class="title">Supervised ML model</h4>
+                </th>
+                <th>
+                    In this section we will work on a supervised learning model to predict whether the alignment of
+                    a superhero is good or evil.
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h4 class="title">Unsupervised ML model</h4>
+                </th>
+                <th>
+                    In this section we will work on a unsupervised learning model to classify superheros in diferent
+                    groups according to their main features.
+                </th>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
 
 {% endblock %}

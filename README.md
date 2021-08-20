@@ -3,11 +3,11 @@
 <!-- ![Marvel](./imgs/avengers.gif) -->
 <img src="./static/avengers.gif" alt="drawing" height='250' width="1000"/>
 
-# Marvel Superheros Data Analysis
+# Marvel Characters Data Analysis
 
 ## Overview
 The project's goal is to show the knowledge acquired along Data Analysys bootcamp given by Ironhack Mexico.
-We chosed Marvel's Superheroes theme as it has the necessary elements to help work on the 4 topics we will cover in this project:
+We chosed Marvel's Characters theme as it has the necessary elements to help work on the 4 topics we will cover in this project:
 
 * 1- Api Requests
 * 2- Data Visualization

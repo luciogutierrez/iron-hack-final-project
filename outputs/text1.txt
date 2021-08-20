@@ -1,0 +1,6 @@
+Name	Alignment	Gender	Race	Height	Weight	Intelligence	Strength	Speed	Durability	Power	Combat	Power_Rank	Count
+A-Bomb	good	Male	Human	203.0	441.0	38	100	17	80	17	64	316	1
+Abomination	bad	Male	Human / Radiation	203.0	441.0	63	80	53	90	55	95	436	1
+Abraxas	bad	Male	other	-99.0	-99.0	88	100	83	99	100	56	526	1
+Agent Bob	good	Male	Human	178.0	81.0	10	8	13	5	5	20	61	1
+Agent Zero	good	Male	undefined	191.0	104.0	75	28	38	80	72	95	388	1

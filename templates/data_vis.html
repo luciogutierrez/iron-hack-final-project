@@ -4,11 +4,10 @@
 <div class="container-fluid">
   <table class="table table-striped table-bordered table-dark">
     <tbody class="thead-dark">
-
       <!-- Marvel Dataset-->
-      <tr>
-        <th style="width:30%">
-          <h3 class="title">Marvel Dataset</h3>
+      <tr height="200">
+        <th style="width: 30%">
+          <h4 class="title">Marvel Dataset</h4>
         </th>
         <th>
           The project is based on the kaggle dataset "Marvel Superheros" which
@@ -26,11 +25,23 @@
           of 344 records and 15 columns.
         </th>
       </tr>
-      
-      <!-- BarChart Gender distribution -->
-      <tr>
+
+      <!-- wordCloud Race distribution -->
+      <tr height="500">
         <th>
-          <h3 class="title">Gender distribution</h3>
+          <h4 class="title">Variables</h4>
+          the dataset is composed of 15 variables describing each character,
+          the variables are:
+        </th>
+        <th>
+          <div id="wordCloudColumnsNames" style="height: 500px"></div>
+        </th>
+      </tr>
+
+      <!-- BarChart Gender distribution -->
+      <tr height="500">
+        <th>
+          <h4 class="title">Gender distribution</h4>
           About gender distribution we have that 225 are male, 96 are female and
           23 are unclassified.
         </th>
@@ -39,47 +50,56 @@
         </th>
       </tr>
 
-      <!-- BarChart Alignment distribution -->
-      <tr>
+      <!-- polarChart Alignment distribution -->
+      <tr height="500">
         <th>
-          <h3 class="title">Alignment distribution</h3>
+          <h4 class="title">Alignment distribution</h4>
           241 of them are alignment as good, while 98 are alignment as bad and 5
           are neutral.
         </th>
         <th>
-          <canvas id="barChartAlignment" height="50" width="100"></canvas>
+          <canvas id="barChartAlignment" height="200"></canvas>
         </th>
       </tr>
-      
+
       <!-- wordCloud Race distribution -->
-      <tr>
+      <tr height="500">
         <th>
-          <h3 class="title">Race distribution</h3>
-            Talking about race, we have various kind of characters like humans,
-            mutants, symbiotes and others, although most of them are undefined as you
-            can see in the following graph.
+          <h4 class="title">Race distribution</h4>
+          Talking about race, we have various kind of characters like humans,
+          mutants, symbiotes and others, although most of them are undefined as
+          you can see in the following graph.
         </th>
         <th>
-          <div id="wordCloudRace" style="height: 300px"></div>
+          <div id="wordCloudRace" style="height: 500px"></div>
         </th>
       </tr>
-      
+
       <!-- barChartPower average power -->
-      <tr>
+      <tr height="500">
         <th>
-          <h3 class="title">Level of power by gender</h3>
+          <h4 class="title">Level of power by gender</h4>
           The level of power is higher on the side of the good guys, and male
           characters have more power than female.
         </th>
         <th>
-          <div id="barChartPower" style="height: 300px"></div>
+          <div id="barChartPower" style="height: 500px"></div>
         </th>
       </tr>
 
+      <!-- horizaontal barChartPower power -->
+      <tr height="500">
+        <th>
+          <h4 class="title">Level of power by Alignment</h4>
+          The level main powersis by  Alignment.
+        </th>
+        <th>
+          <div id="horizontalBarChartPower" style="height: 500px"></div>
+        </th>
+      </tr>
     </tbody>
   </table>
 </div>
-
 
 {% block javascript %}
 <script>
@@ -138,7 +158,18 @@
 
 <script>
   anychart.onDocumentReady(function () {
-      var data = {{ dictionary | safe }};
+      var data = {{ dictionary[0] | safe }};
+      var chart = anychart.tagCloud(data);
+      chart.title('dataset variables')
+      chart.angles([0])
+      chart.colorRange(false);
+      chart.colorRange().length('80%');
+      chart.container("wordCloudColumnsNames");
+      chart.draw();
+  });
+
+  anychart.onDocumentReady(function () {
+      var data = {{ dictionary[1] | safe }};
       var chart = anychart.tagCloud(data);
       chart.title('More races presented')
       chart.angles([0])
@@ -150,11 +181,11 @@
 </script>
 
 <script>
-  // Radar Chart
+  // Column Chart
   anychart.onDocumentReady(function () {
       // create data set on our data
       var data = {
-        title: 'Level of power by gender',
+        title: 'Level of power by Gender and Alignment',
         header: {{ headers | safe }},
         rows: {{ rows | safe }}
       };
@@ -180,6 +211,72 @@
       chart.container('barChartPower');
       chart.draw();
     });
+
+  // Horizontal barChart Power by Alignment
+  anychart.onDocumentReady(function () {
+    // create data set
+    var dataSet = anychart.data.set(getData());
+    var firstSeriesData = dataSet.mapAs({ x: 0, value: 1 });
+    var secondSeriesData = dataSet.mapAs({ x: 0, value: 2 });
+    var chart = anychart.bar();
+    chart.animation(true);
+    chart.padding([10, 20, 5, 20]);
+    chart.yScale().stackMode('value');
+    chart
+      .yAxis()
+      .labels()
+      .format(function () {
+        return Math.abs(this.value).toLocaleString();
+      });
+    chart.yAxis(0).title('Level of power');
+    chart.xAxis(0).overlapMode('allow-overlap');
+    chart
+      .xAxis(1)
+      .enabled(true)
+      .orientation('right')
+      .overlapMode('allow-overlap');
+    chart.title('Level of power by Alignment');
+    chart.interactivity().hoverMode('by-x');
+    chart
+      .tooltip()
+      .title(false)
+      .separator(false)
+      .displayMode('separated')
+      .positionMode('point')
+      .useHtml(true)
+      .fontSize(12)
+      .offsetX(5)
+      .offsetY(0)
+      .format(function () {
+        return (
+          '<span style="color: #D9D9D9"></span>' +
+          Math.abs(this.value).toLocaleString()
+        );
+      });
+
+    var series;
+    series = chart.bar(firstSeriesData);
+    series.name('bad').color('Green');
+    series.tooltip().position('right').anchor('left-center');
+    
+    series = chart.bar(secondSeriesData);
+    series.name('good');
+    series.tooltip().position('left').anchor('right-center');
+    chart
+      .legend()
+      .enabled(true)
+      .inverted(true)
+      .fontSize(13)
+      .padding([0, 0, 20, 0]);
+
+    chart.container('horizontalBarChartPower');
+    chart.draw();
+  });
+
+  function getData() {
+    return {{ levelOfPower | safe }};
+  }
+
 </script>
 
 {% endblock %} {% endblock %}

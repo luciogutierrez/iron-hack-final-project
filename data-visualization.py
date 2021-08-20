@@ -83,7 +83,7 @@ def make_race_category(df):
     df = df.copy()
     # df['Race2'] = np.where(df.Race.isin(race_type),df.Race,'other')
     # df['Race2'] = np.where(~df['Race'].isin(race_type),'other', df['Race'])
-    df['Race2'] = np.where(df.Race.isin(race_type), df.Race,'other')
+    df['Race'] = np.where(df.Race.isin(race_type), df.Race,'other')
     return df
 
 # Main Pipeline
@@ -95,10 +95,3 @@ df = replace_null_values(df, 'Gender', '-', 'undefined')
 df = replace_null_values(df, 'Race', '-', 'undefined')
 df = make_race_category(df)
 save_df_to_csv(df)
-# df.info()
-
-# data = pd.read_csv('./outputs/marvel_data.csv')
-# table = pd.pivot_table(data, values='Power_Rank', index='Gender', columns='Alignment', aggfunc=np.sum).reset_index()
-# headers = list(table.columns.values)
-# table = table.fillna(0)
-# table.head()

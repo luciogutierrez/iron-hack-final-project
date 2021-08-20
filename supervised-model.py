@@ -19,18 +19,18 @@ pd.set_option('display.width', None)
 # --------------------------------------------------------------------
 # Extraction
 # --------------------------------------------------------------------
-df_train = pd.read_csv('datasets/marvel-powers.csv')
+df_train = pd.read_csv('outputs/marvel_data.csv')
 
 # --------------------------------------------------------------------
 # Analysis
 # --------------------------------------------------------------------
-# df_train.head()
+df_train.head(5)
 # df_train.info()
 # df_train.isna().sum()
 # df_train.Alignment.value_counts()
 # df_train.Alignment.value_counts(normalize=True)
 # df_train.columns
-corr = df_train.drop('Total', axis=1).corr()
+corr = df_train.drop('Power_Rank', axis=1).corr()
 sns.heatmap(corr, annot=True, cmap='RdYlGn')
 
 # --------------------------------------------------------------------
@@ -56,7 +56,7 @@ def drop_neutral_values(df):
 def selectingVariablesToModel(df):
     """
     ['Name', 'Alignment', 'Intelligence', 'Strength', 'Speed', 'Durability',
-       'Power', 'Combat', 'Total']    """
+       'Power', 'Combat', 'Power_Rank']    """
     df = df.copy()
     model_cols = ['Name', 'Alignment', 'Intelligence', 'Strength', 'Speed', 'Durability',
        'Power', 'Combat']

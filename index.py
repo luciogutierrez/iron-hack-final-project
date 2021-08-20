@@ -76,6 +76,13 @@ def api_request():
 # definición de la pagina de data visualization
 @app.route('/data_vis')
 def data_vis():
+    dictionary = []
+    # wordCloud Columns Names
+    cols_names = pd.DataFrame(data.columns)
+    cols_names.rename(columns={0:'x'}, inplace=True)
+    cols_names['value'] = 1
+    dictionary.append(cols_names.to_dict('records'))
+    
     labels = []
     values = []
     # Barchart gender distribution
@@ -83,23 +90,32 @@ def data_vis():
     labels.append(df.Gender.to_list())
     values.append(df.Count.to_list())
     
-    # Barchart gender distribution
+    # Barchart Alignment distribution
     df = data.groupby(['Alignment']).agg({'Count':'sum'}).reset_index()
     labels.append(df.Alignment.to_list())
     values.append(df.Count.to_list())
-    
+
     # wordCloud Race distribution
-    df = data.groupby(['Race2']).agg({'Count':'sum'}).reset_index()
-    df.rename(columns={'Race2':'x', 'Count':'value'}, inplace=True)
-    dictionary = df.to_dict('records')
+    df = data.groupby(['Race']).agg({'Count':'sum'}).reset_index()
+    df.rename(columns={'Race':'x', 'Count':'value'}, inplace=True)
+    dictionary.append(df.to_dict('records'))
     
     # columnChart    
     table = pd.pivot_table(data, values='Power_Rank', index='Gender', columns='Alignment', aggfunc='sum').reset_index()
     table = table.fillna(0)
     headers = list(table.columns.values)
     rows = table.values.tolist()
+
+    # horizontalBarChart level of power
+    cols = ['Alignment','Intelligence', 'Strength', 'Speed', 'Durability', 'Power', 'Combat']
+    df_temp = data[cols]
+    df = df_temp.groupby(['Alignment']).sum()
+    dft = df.T.reset_index()
+    dft.rename(columns={'index':'Alignment'}, inplace=True)
+    dft.drop(columns='neutral', axis=1, inplace=True)
+    levelOfPower = dft.values.tolist()
     
-    return render_template('data_vis.html', labels=labels, values=values, dictionary=dictionary, headers=headers, rows=rows)
+    return render_template('data_vis.html', labels=labels, values=values, dictionary=dictionary, headers=headers, rows=rows, levelOfPower=levelOfPower)
 
 # definición de la pagina de modelo supervisado
 @app.route('/sml_model')
@@ -114,8 +130,7 @@ def uml_model():
 # definición de pagina acerca de...
 @app.route('/about') 
 def about():
-    notas = ("nota1","nota2","nota3","nota4","nota5","nota6")
-    return render_template('about.html', notas=notas)
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
