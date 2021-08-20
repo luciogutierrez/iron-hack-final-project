@@ -49,7 +49,7 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-# lista de heroes y urls
+# lista de personajes y urls
 @app.route('/api_request') 
 def api_request():
     superheros = get_superheros()
@@ -121,11 +121,6 @@ def data_vis():
 @app.route('/sml_model')
 def sml_model():
     return render_template('sml_model.html')
-
-# definición de la pagina de model no supervisado
-@app.route('/uml_model')
-def uml_model():
-    return render_template('uml_model.html')
 
 # definición de pagina acerca de...
 @app.route('/about') 

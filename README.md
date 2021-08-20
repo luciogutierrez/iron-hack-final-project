@@ -7,12 +7,11 @@
 
 ## Overview
 The project's goal is to show the knowledge acquired along Data Analysys bootcamp given by Ironhack Mexico.
-We chosed Marvel's Characters theme as it has the necessary elements to help work on the 4 topics we will cover in this project:
+We chosed Marvel's Characters theme as it has the necessary elements to help work on the 3 topics we will cover in this project:
 
 * 1- Api Requests
 * 2- Data Visualization
 * 3- Supervised Machine Learning model
-* 4- Unsupervised Machine Learning model
 
 ## Api Requests
 In this section we will use python "requests" method to connect to the Marvel Api.

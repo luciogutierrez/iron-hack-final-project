@@ -12,9 +12,12 @@ import plotly.express as px
 # data = pd.merge(data1, data2, on=['Name','Alignment'])
 # data3 = data[data.Publisher=='Marvel Comics']
 # data3.to_csv('./datasets/marvel_data.csv', index=False)
+# data4 = data[data.Publisher=='DC Comics']
+# data4.to_csv('./datasets/dc_data.csv', index=False)
 
 # Data extration
-data = pd.read_csv('./datasets/marvel_data.csv')
+data_marvel = pd.read_csv('./datasets/marvel_data.csv')
+data_dc = pd.read_csv('./datasets/dc_data.csv')
 # --------------------------------------------------------------------
 
 # Data Analysis
@@ -59,8 +62,11 @@ def replace_null_values(df, col_name, old_value, new_value):
     df.loc[df[col_name] == old_value, col_name] = new_value
     return df
 
-def save_df_to_csv(df):
-    df.to_csv('./outputs/marvel_data.csv', index=False)
+def save_df_to_csv(df, studios):
+    if studios=='Marvel':
+        df.to_csv('./outputs/marvel_data.csv', index=False)
+    else:    
+        df.to_csv('./outputs/dc_data.csv', index=False)
 
 def make_race_category(df):
     race_type = ['undefined',
@@ -88,10 +94,20 @@ def make_race_category(df):
 
 # Main Pipeline
 # --------------------------------------------------------------------
-df = selectingVariablesToModel(data)
+# data preparation for marvel model
+df = selectingVariablesToModel(data_marvel)
 df = change_variable_name(df, 'Total', 'Power_Rank')
 df = adding_count_variable(df)
 df = replace_null_values(df, 'Gender', '-', 'undefined')
 df = replace_null_values(df, 'Race', '-', 'undefined')
 df = make_race_category(df)
-save_df_to_csv(df)
+save_df_to_csv(df,'Marvel')
+
+# data preparation for marvel model
+df = selectingVariablesToModel(data_dc)
+df = change_variable_name(df, 'Total', 'Power_Rank')
+df = adding_count_variable(df)
+df = replace_null_values(df, 'Gender', '-', 'undefined')
+df = replace_null_values(df, 'Race', '-', 'undefined')
+df = make_race_category(df)
+save_df_to_csv(df,'Dc')
