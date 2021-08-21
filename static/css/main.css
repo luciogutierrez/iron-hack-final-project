@@ -1,19 +1,37 @@
+#header {
+  position: fixed;
+  top: 0px;
+  height: 20px;
+  width: 100%;
+  background: green;
+}
+#body{ margin-top: 30px; }
+
 body{
       background: #b92b27;  /* fallback for old browsers */
       background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
       background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       }
 
-th,td{
-  text-align:center;
-  vertical-align:middle;  
+th{
+  text-align:left;
+  vertical-align:top;  
   color:white;
   font-weight:normal;
+  font-size:30px;
+}
+
+td{
+  text-align:left;
+  vertical-align:top;  
+  color:white;
+  font-weight:normal;
+  font-size:18px;
 }
 
 imag.img-thumbnail{
-  width: 80%;
-  height: 80%;
+  width: 80;
+  height: 80;
 }
 
 a:link {
