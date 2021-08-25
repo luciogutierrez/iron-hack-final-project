@@ -2,71 +2,100 @@
 <div>&nbsp;</div>
 <div>&nbsp;</div>
 <div>&nbsp;</div>
-<!-- <img
-  src="/static/avengers.gif"
-  alt="drawing"
-  width="100%"
-  height="250"
-  class="center"
-/> -->
+
 <h3 style="color:red" class="text-center">Home</h3>
-<h3 class="title" style="display:inline;">Project name</h3>
-<h2>Walking through a ML model's production line</h2>
+<hr />
+<h2 class="title">End-to-end ML model example</h2>
+<hr />
 
 <div class="entry-content">
     <!-- Main Table for introduction -->
     <table class="table table-striped table-bordered table-dark table-hover">
         <tbody class="thead-dark">
-            <tr height="1000">
+            <tr height="800">
                 <th>
                     <h3 class="title">Objective</h3>
                     Ironhack has provided us with a very important toolkit that we can use when working with ML models,
-                    for some of us, and this happened to me personally, I went from the problem of not having tools to
-                    having too many and not knowing which ones to use.
-                    </br></br>
+                    for some of us (in my personal case). I went from not having tools, to have a lot and not knowing which ones to use.
+                    </br>
                     The objective of the project is to walk through the different processes involved in the generation
-                    of a machine learning model.
+                    of a machine learning model explaining what happened in each of them.
                     </br></br>
+                    The main ML procces could be as follow:
                     <ol class="paragraph">
-                        <li>Data Acquisition</li>
+                        <li>ETL</li>
                         <ul>
-                            <li>Api Request</li>
-                            <li>Download dataset</li>
+                            <li>Data Acquisition</li>
+                            <li>Data Cleaning</li>
+                            <li>Feature Engineering</li>
                         </ul>
-                        <li>Data Cleaning</li>
-                        <li>Feature Engineering</li>
+                        <li>Data Visualization</li>
                         <li>Model Selection</li>
                         <li>Hyperparameter Adjustments</li>
-                        <li>Deployment</li>
+                        <li>Model Validation</li>
                     </ol>
                 </th>
             </tr>
             <tr height="800">
                 <th>
-                    <h3 class="title">Api Requests</h3>
-                    In this section we will use python "requests" method to connect to the Marvel Api.
+                    <h3 class="title">ETL</h3>
+                    In this section we will use the first three stages to extract data from the marvel Api in real time,
+                    make some transformations and show the results in a web page.
+                    <ol class="paragraph">
+                        <li>ETL</li>
+                        <ul>
+                            <li>Data Acquisition (Api request)</li>
+                            <li>Data Cleaning</li>
+                            <li>Feature Engineering</li>
+                        </ul>
+                    </ol>
                     </br>
-                    We will download information of our favorite super heroes which we will use to generate
-                    an online catalog to access the web page of each one of them.
+                    We'll use the dataset "Marvel Superheros" published in kaggle in the following link:
+                    <br />
+                    <a href="https://www.kaggle.com/dannielr/marvel-superheroes"
+                        target="_blank">https://www.kaggle.com/dannielr/marvel_superheros</a>
+                    <br />
+                    In fact the source contains 8 datasets so the first task we had
+                    to do was to analyze the content of each one and define the data we
+                    would use for our project. At the end we define two datasets, one to train the model with
+                    344 observations and 14 variables, and one more to test the model with 166 observations and 14
+                    variables.
+                    <ol class="paragraph">
+                        <li>ETL</li>
+                        <ul>
+                            <li>Data Acquisition (Download dataset)</li>
+                            <li>Data Cleaning</li>
+                            <li>Feature Engineering</li>
+                        </ul>
+                    </ol>
                 </th>
             </tr>
             <tr height="800">
                 <th>
                     <h3 class="title">Data Visualization</h3>
+                    Data Visualization is the process of better understand the data using graphics and charts,
+                    has the power to tell data-driven stories while allowing people to see patterns and relationships
+                    found in data.
+                    <br><br>
                     In this section we will create and interpret different types of visualizations to better
-                    understand the Marvel dataset we are working with.
+                    understand the datases we are working with.
+                    <img src="/static/data_charts.gif" width="900" height="500" class="center" />
                 </th>
             </tr>
             <tr height="800">
                 <th>
                     <h3 class="title">Supervised ML model</h3>
-                    In this section we will work on a supervised learning model to predict whether the alignment of
-                    a superhero is good or evil.
+                    In this section we will implement a Logistic Regression model to predict whether the
+                    alignment of second dataset characters are good or bad.
+                    <br>
+                    But... what is Logistic Regression?, Logistic regression is a classification technique that gives
+                    the probabilistic output of dependent categorical value based on certain independent variables,
+                    which the output is considered as 1 and below the threshold, the output is considered as 0.
+                    <img src="/static/logistic-regression.png" height="400" class="center" />
                 </th>
             </tr>
         </tbody>
     </table>
 </div>
-
 
 {% endblock %}

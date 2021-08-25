@@ -4,7 +4,7 @@
 import pandas as pd
 import numpy as np
 import seaborn as sns
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 from scipy import stats
 from sklearn.utils import resample
@@ -26,33 +26,44 @@ df_target = pd.read_csv('outputs/dc_data.csv')
 # --------------------------------------------------------------------
 # Analysis
 # --------------------------------------------------------------------
-# train dataset
-# df_train.head(5)
-# df_train.info()
-# df_train.describe()
-# df_train.isna().sum()
-# df_train.Alignment.value_counts()
-# df_train.Alignment.value_counts(normalize=True)
-# df_train.columns
-# corr = df_train.drop('Power_Rank', axis=1).corr()
-# sns.heatmap(corr, annot=True, cmap='RdYlGn')
+# Train set
+# --------------------------------------------------------------------
+def analysis_df_train():
+    df_train.head(5)
+    df_train.info()
+    df_train.describe()
+    df_train.isna().sum()
+    df_train.Alignment.value_counts()
+    df_train.Alignment.value_counts(normalize=True)
+    df_train.Gender.value_counts()
+    df_train.Gender.value_counts(normalize=True)
+    df_train.columns
+    corr = df_train.drop('Power_Rank', axis=1).corr()
+    sns.heatmap(corr, annot=True, cmap='RdYlGn')
+    return
 
-# target dataset
-# df_target.head(5)
-# df_target.info()
-# df_target.describe()
-# df_target.isna().sum()
-# df_target.Alignment.value_counts()
-# df_target.Alignment.value_counts(normalize=True)
-# df_target.columns
-# corr = df_target.drop('Power_Rank', axis=1).corr()
-# sns.heatmap(corr, annot=True, cmap='RdYlGn')
+# Target set
+# --------------------------------------------------------------------
+def analysis_df_target():
+    df_target.head(5)
+    df_target.info()
+    df_target.describe()
+    df_target.isna().sum()
+    df_target.Alignment.value_counts()
+    df_target.Alignment.value_counts(normalize=True)
+    df_target.Gender.value_counts()
+    df_target.Gender.value_counts(normalize=True)
+    df_target.columns
+    corr = df_target.drop('Power_Rank', axis=1).corr()
+    sns.heatmap(corr, annot=True, cmap='RdYlGn')
+    return
+
 
 # --------------------------------------------------------------------
 # Transformation
 # --------------------------------------------------------------------
 
-# Drop null values
+# Drop catecorical values that are not present in the train set
 # --------------------------------------------------------------------
 def depuraTrainSet(df, df2):
     df = df.copy()
@@ -64,6 +75,8 @@ def depuraTrainSet(df, df2):
     df.drop(df[df.Gender=='undefined'].index, axis=0, inplace=True)
     return df
 
+# Drop outliers
+# --------------------------------------------------------------------
 def dropOutliers(df):
     # identificamos las columnas númericas y las categoricas
     n_cols = ['training_hours']
@@ -74,7 +87,6 @@ def dropOutliers(df):
     df = df[filtered_entries]
     df.describe()
     return df
-
 
 # Drop null values
 # --------------------------------------------------------------------
@@ -94,18 +106,15 @@ def drop_neutral_values(df):
 # Selecting variables to include in the model
 # --------------------------------------------------------------------
 def selectingVariablesToModel(df):
-    df_train.columns
     """
     ['Name', 'Alignment', 'Gender', 'Race', 'Height', 'Weight',
        'Intelligence', 'Strength', 'Speed', 'Durability', 'Power', 'Combat',
        'Power_Rank', 'Count']
     """
-    df = df.copy()
     model_cols = ['Name', 'Alignment', 'Gender', 'Race', 'Height', 'Weight',
-       'Intelligence', 'Strength', 'Speed', 'Durability', 'Power', 'Combat',
-       'Power_Rank', 'Count']
-    df = df[model_cols]
-    return df
+       'Intelligence', 'Strength', 'Speed', 'Durability', 'Power', 'Combat']
+    df_cols = df[model_cols]
+    return df_cols
 
 # Change Alignment variale to numbers
 # --------------------------------------------------------------------
@@ -137,8 +146,8 @@ def balanceDownSampling(df):
 # --------------------------------------------------------------------
 def balanceOverSampling(df):
     df = df.copy()
-    df_1 = df[df.Alignment == 1]
-    df_0 = df[df.Alignment == 0]
+    df_1 = df[df.Alignment == 'good']
+    df_0 = df[df.Alignment == 'bad']
     df_resample = resample(df_0, replace=True, n_samples=df_1.shape[0])
     df_bal = pd.concat([df_resample, df_1])
     df_bal = df_bal.sample(frac=1)
@@ -167,10 +176,10 @@ def generateDummySet(df):
 df = depuraTrainSet(df_train, df_target)
 df = drop_null_values(df)
 df = drop_neutral_values(df)
-df = selectingVariablesToModel(df)
-df = changeToNumberDependientVariable(df)
-df = changeTypeToCagory(df, ['Name','Alignment'])
 df = balanceOverSampling(df)
+df = changeToNumberDependientVariable(df)
+df = selectingVariablesToModel(df)
+df = changeTypeToCagory(df, ['Name','Alignment'])
 df = ScaleNumericVariables(df)
 df = generateDummySet(df)
     
@@ -214,6 +223,22 @@ print(df_submission.Prediction.value_counts())
 # --------------------------------------------------------------------
 df_submission.to_csv('./outputs/submission.csv', index=False)
 
+# plot results  of model
+# --------------------------------------------------------------------
+# df_submission.Alignment.value_counts().plot(kind='bar')
+# df_submission.Prediction.value_counts().plot(kind='bar')
 
-df.head()
-dft.head()
+# barplot Alignment and Prediction side by side
+# --------------------------------------------------------------------
+x1, y1 = df_submission.Alignment.value_counts().index, df_submission.Alignment.value_counts().values
+x2, y2 = df_submission.Prediction.value_counts().index, df_submission.Prediction.value_counts().values
+
+fig, [ax1, ax2] = plt.subplots(nrows=1, ncols=2, figsize=(10,5))
+ax1.bar(x=x1, height=y1)
+ax1.set_title('Alignment')
+ax1.set_ylabel('Total characters')
+
+ax2.bar(x=x2, height=y2)
+ax2.set_title('Prediction')
+ax2.set_ylim(0, 120)
+plt.show()

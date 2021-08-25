@@ -39,6 +39,26 @@ def get_superheros():
         print(error.response.text)
     except requests.exceptions.RequestException as error:
         print(error.response.text)
+    return
+
+# salvar data en archivo.csv
+def save_dictionary_as_csv(dictionary, lista):
+    # built pandas tabular data with de dictironary useful data
+    df_headers = ('Name','Description','Image_URL','URL')
+    df_heros = pd.DataFrame(dictionary['data'][0].values()).transpose()
+    for i in range(1, len(lista)):
+        df_next = pd.DataFrame(dictionary['data'][i].values()).transpose()
+        df_heros = df_heros.append(df_next, ignore_index=True)
+    df_heros.columns = df_headers
+    # save tabular data into a csv file
+    df_heros.to_csv("./outputs/marvel_heros.csv", index=False)
+    return
+
+# carga data desde archivo.csv
+def get_data_from_csv():
+    df = pd.read_csv('./outputs/marvel_heros.csv')
+    df
+    return df
 
 # instanciación de Flask
 app = Flask(__name__)
@@ -49,29 +69,52 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-# lista de personajes y urls
+# Get character from csv file
 @app.route('/api_request') 
 def api_request():
-    superheros = get_superheros()
-    list_sh = superheros['data']['results']
+    df_characters = get_data_from_csv()
 
     heros = {"data":[]}
     def add_hero(hero):
         heros["data"].append(hero)
 
-    for hero in list_sh:
-        imageUrl = ''
-        imageUrl += hero['thumbnail']['path']
-        imageUrl += '.'
-        imageUrl += hero['thumbnail']['extension']
+    for index, row in df_characters.iterrows():
         item = {}
-        item['hero_name'] = hero['name']
-        item['hero_desc'] = hero['description']
-        item['hero_img'] = imageUrl
-        item['hero_url'] = hero['urls'][0]['url']
+        item['hero_name'] = row.Name
+        item['hero_desc'] = row.Description
+        item['hero_img'] = row.Image_URL
+        item['hero_url'] = row.URL
         add_hero(item)
-    longitud = len(list_sh)
+        
+    longitud = len(df_characters)
+    
     return render_template('api_request.html', heros=heros, longitud=longitud)
+
+# # This section get data directly from the Marvel Api insted of from csv file
+# @app.route('/api_request') 
+# def api_request():
+#     superheros = get_superheros()
+#     list_sh = superheros['data']['results']
+
+#     heros = {"data":[]}
+#     def add_hero(hero):
+#         heros["data"].append(hero)
+
+#     for hero in list_sh:
+#         imageUrl = ''
+#         imageUrl += hero['thumbnail']['path']
+#         imageUrl += '.'
+#         imageUrl += hero['thumbnail']['extension']
+#         item = {}
+#         item['hero_name'] = hero['name']
+#         item['hero_desc'] = hero['description']
+#         item['hero_img'] = imageUrl
+#         item['hero_url'] = hero['urls'][0]['url']
+#         add_hero(item)
+#     longitud = len(list_sh)
+#     # save data into a csv file
+#     save_dictionary_as_csv(heros, list_sh)
+#     return render_template('api_request.html', heros=heros, longitud=longitud)
 
 # definición de la pagina de data visualization
 @app.route('/data_vis')

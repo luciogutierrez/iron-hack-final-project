@@ -3,45 +3,63 @@
 <!-- ![Marvel](./imgs/avengers.gif) -->
 <img src="./static/avengers.gif" alt="drawing" height='250' width="1000"/>
 
-# Marvel Characters Data Analysis
+# End-to-end ML model example
 
 ## Overview
-The project's goal is to show the knowledge acquired along Data Analysys bootcamp given by Ironhack Mexico.
-We chosed Marvel's Characters theme as it has the necessary elements to help work on the 3 topics we will cover in this project:
-
-* 1- Api Requests
-* 2- Data Visualization
-* 3- Supervised Machine Learning model
+Ironhack has provided us with a very important toolkit that we can use when working with ML models,
+for some of us (in my personal case). I went from not having tools, to have a lot and not knowing which ones to use.
+The objective of the project is to walk through the different processes involved in the generation
+of a machine learning model explaining what happened in each of them.
+The main ML procces could be as follow:
+* ETL
+    * Data Acquisition
+    * Data Cleaning
+    * Feature Engineering
+* Data Visualization
+* Model Selection
+* Hyperparameter Adjustments
+* Model Validation
 
 ## Api Requests
-In this section we will use python "requests" method to connect to the Marvel Api.
-We will download information of our favorite super heroes which we will use to generate an online catalog to access the web page of each one of them.
+In this section we will use the first three stages to extract data from the marvel Api in real time,
+make some transformations and show the results in a web page.
+* ETL
+    * Data Acquisition (Api request)
+    * Data Cleaning
+    * Feature Engineering
+
+We'll use the dataset "Marvel Superheros" published in kaggle in the following link:
+<a href="https://www.kaggle.com/dannielr/marvel-superheroes"
+    target="_blank">https://www.kaggle.com/dannielr/marvel_superheros</a>
+In fact the source contains 8 datasets so the first task we had
+to do was to analyze the content of each one and define the data we
+would use for our project. At the end we define two datasets, one to train the model with
+344 observations and 14 variables, and one more to test the model with 166 observations and 14
+variables.
+* ETL
+    * Data Acquisition (Api request)
+    * Data Cleaning
+    * Feature Engineering
 
 ## Data Visualization
-In this section we will create and interpret different types of visualizations to better understand the Marvel dataset we are working with.
+Data Visualization is the process of better understand the data using graphics and charts,
+has the power to tell data-driven stories while allowing people to see patterns and relationships
+found in data.
+
+In this section we will create and interpret different types of visualizations to better
+understand the datases we are working with.
+<img src="./static/data_charts.gif" alt="drawing" height='250' width="1000"/>
 
 ## Supervised Machine Learning model
-In this section we will work on a supervised learning model to predict whether the alignment of a superhero is good or evil.
-
-## Unsupervised Machine Learning model
-In this section we will work on a unsupervised learning model to classify superheros in diferent groups according to their main features.
-
-## Technical Requirements
-* Obtain data from **Marvel's API** using requests library.
-* The results is a pandas tabular results of the API request and the ``"marvel-heros.csv"`` file.
-* The results are in the folder ``"outputs"``.
-* The code is in the Jupyter Notebook ``"marvel-api.ipynb"``.
-
-## Explanation of the approach and code
-* 1- Import requets and pandas libraries.
-* 2- Define a function to request data from **Marvel's API**.
-* 3- Save data response in the global variable and extrat in a list the results data.
-* 4- Define a function to extract the usuful data from the response and save it in a separate dictionary.
-* 5- Define a function to export data from dictionary into a pandas data frame.
-* 6- Define a function to export data from data frame to csv file.
+Supervised ML model
+In this section we will implement a Logistic Regression model to predict whether the
+alignment of second dataset characters are good or bad.
+But... what is Logistic Regression?, Logistic regression is a classification technique that gives
+the probabilistic output of dependent categorical value based on certain independent variables,
+which the output is considered as 1 and below the threshold, the output is considered as 0.
+<img src="./static/logistic-regression.png" alt="drawing" height='250' width="1000"/>
 
 ## Useful Resources
-
 * [Marvel's developers web page](https://developer.marvel.com/)
 * [Requests Library Documentation: Quickstart](http://docs.python-requests.org/en/master/user/quickstart/)
 * [Marvel's dataset](https://www.kaggle.com/dannielr/marvel-superheroes)
