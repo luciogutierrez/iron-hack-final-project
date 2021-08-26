@@ -5,26 +5,45 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 
-# Data consolidation
-# --------------------------------------------------------------------
-# data1 = pd.read_csv('./datasets/marvel_character_info.csv')
-# data2 = pd.read_csv('./datasets/marvel_powers_matrix.csv')
-# data = pd.merge(data1, data2, on=['Name','Alignment'])
-# data3 = data[data.Publisher=='Marvel Comics']
-# data3.to_csv('./datasets/marvel_data.csv', index=False)
-# data4 = data[data.Publisher=='DC Comics']
-# data4.to_csv('./datasets/dc_data.csv', index=False)
-
 # Data extration
-data_marvel = pd.read_csv('./datasets/marvel_data.csv')
-data_dc = pd.read_csv('./datasets/dc_data.csv')
+df_train = pd.read_csv('./datasets/marvel_data.csv')
+df_target = pd.read_csv('./datasets/dc_data.csv')
 # --------------------------------------------------------------------
 
 # Data Analysis
 # --------------------------------------------------------------------
-# data.info()
-# data.columns
-# data.Alignment.value_counts()
+def percentage_nulls(df):
+    number_nulls = pd.DataFrame(df.isnull().sum(),columns=['Total'])
+    number_nulls['% nulls'] = round((number_nulls['Total'] / df.shape[0])*100,1)
+    return number_nulls
+
+def display_all(df):
+    with pd.option_context("display.max_rows",1000 ,  "display.max_columns", 1000): 
+        display(df)
+        
+def analysis_train_set():
+    df_train.head()
+    df_train.info()
+    df_train.isna().sum()
+    percentage_nulls(df_train)
+    df_train.Alignment.value_counts()
+    df_train.Alignment.value_counts(normalize=True)
+    df_train.Gender.value_counts()
+    df_train.columns
+    display_all(df_train.describe(include='all').T)
+    return
+
+def analysis_target_set():
+    df_target.head()
+    df_target.info()
+    df_target.isna().sum()
+    percentage_nulls(df_target)
+    df_target.Alignment.value_counts()
+    df_target.Alignment.value_counts(normalize=True)
+    df_target.Gender.value_counts()
+    df_target.columns
+    display_all(df_target.describe(include='all').T)
+    return
 
 # Data Transformation
 # Select variables to include in the model
@@ -95,7 +114,7 @@ def make_race_category(df):
 # Main Pipeline
 # --------------------------------------------------------------------
 # data preparation for marvel model
-df = selectingVariablesToModel(data_marvel)
+df = selectingVariablesToModel(df_train)
 df = change_variable_name(df, 'Total', 'Power_Rank')
 df = adding_count_variable(df)
 df = replace_null_values(df, 'Gender', '-', 'undefined')
@@ -104,7 +123,7 @@ df = make_race_category(df)
 save_df_to_csv(df,'Marvel')
 
 # data preparation for marvel model
-df = selectingVariablesToModel(data_dc)
+df = selectingVariablesToModel(df_target)
 df = change_variable_name(df, 'Total', 'Power_Rank')
 df = adding_count_variable(df)
 df = replace_null_values(df, 'Gender', '-', 'undefined')
