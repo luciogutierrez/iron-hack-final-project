@@ -1,4 +1,5 @@
 # imports
+import os
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -6,8 +7,9 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 
 # Data extration
-df_train = pd.read_csv('./datasets/marvel_data.csv')
-df_target = pd.read_csv('./datasets/dc_data.csv')
+this_folder = os.path.dirname(os.path.abspath(__file__))
+df_train = pd.read_csv(this_folder + '/datasets/marvel_data.csv')
+df_target = pd.read_csv(this_folder + '/datasets/dc_data.csv')
 # --------------------------------------------------------------------
 
 # Data Analysis

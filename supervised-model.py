@@ -1,6 +1,7 @@
 # --------------------------------------------------------------------
 # Imports
 # --------------------------------------------------------------------
+import os
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -20,8 +21,9 @@ pd.set_option('display.width', None)
 # --------------------------------------------------------------------
 # Extraction
 # --------------------------------------------------------------------
-df_train = pd.read_csv('outputs/marvel_data.csv')
-df_target = pd.read_csv('outputs/dc_data.csv')
+this_folder = os.path.dirname(os.path.abspath(__file__))
+df_train = pd.read_csv(this_folder + '/outputs/marvel_data.csv')
+df_target = pd.read_csv(this_folder + '/outputs/dc_data.csv')
 
 # --------------------------------------------------------------------
 # Analysis
@@ -221,7 +223,7 @@ print(df_submission.Prediction.value_counts())
 
 # Save submission csv file to upload in kaggle
 # --------------------------------------------------------------------
-df_submission.to_csv('./outputs/submission.csv', index=False)
+df_submission.to_csv(this_folder + '/outputs/submission.csv', index=False)
 
 # plot results  of model
 # --------------------------------------------------------------------

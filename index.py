@@ -1,7 +1,10 @@
+import os
 import requests
 import pandas as pd
 from flask import Flask, render_template
-data = pd.read_csv('./outputs/marvel_data.csv')
+
+this_folder = os.path.dirname(os.path.abspath(__file__))
+data = pd.read_csv(this_folder + '/outputs/marvel_data.csv')
 
 # construct url with dinamic folders
 def url_fun(*args):
@@ -51,12 +54,12 @@ def save_dictionary_as_csv(dictionary, lista):
         df_heros = df_heros.append(df_next, ignore_index=True)
     df_heros.columns = df_headers
     # save tabular data into a csv file
-    df_heros.to_csv("./outputs/marvel_heros.csv", index=False)
+    df_heros.to_csv(this_folder + "/outputs/marvel_heros.csv", index=False)
     return
 
 # carga data desde archivo.csv
 def get_data_from_csv():
-    df = pd.read_csv('./outputs/marvel_heros.csv')
+    df = pd.read_csv(this_folder + '/outputs/marvel_heros.csv')
     df
     return df
 
@@ -171,4 +174,5 @@ def about():
     return render_template('about.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+    # app.run(debug=True)
