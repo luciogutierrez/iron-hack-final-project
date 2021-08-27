@@ -85,9 +85,9 @@ def replace_null_values(df, col_name, old_value, new_value):
 
 def save_df_to_csv(df, studios):
     if studios=='Marvel':
-        df.to_csv('./outputs/marvel_data.csv', index=False)
+        df.to_csv(this_folder + '/outputs/marvel_data.csv', index=False)
     else:    
-        df.to_csv('./outputs/dc_data.csv', index=False)
+        df.to_csv(this_folder + '/outputs/dc_data.csv', index=False)
 
 def make_race_category(df):
     race_type = ['undefined',
