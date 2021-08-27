@@ -6,56 +6,56 @@ from flask import Flask, render_template
 this_folder = os.path.dirname(os.path.abspath(__file__))
 data = pd.read_csv(this_folder + '/outputs/marvel_data.csv')
 
-# construct url with dinamic folders
-def url_fun(*args):
-    url = 'http://gateway.marvel.com/'
-    return url + '/'.join(args)
+# # construct url with dinamic folders
+# def url_fun(*args):
+#     url = 'http://gateway.marvel.com/'
+#     return url + '/'.join(args)
 
-# carga de claves
-def get_key(key):
-    with open('C:/Windows/AppsKeys/Marvel/'+key+'.key', 'r') as file_read:
-        app_key = file_read.readline()
-    return app_key
+# # carga de claves
+# def get_key(key):
+#     with open('C:/Windows/AppsKeys/Marvel/'+key+'.key', 'r') as file_read:
+#         app_key = file_read.readline()
+#     return app_key
 
-# solicitud de conexion a la api de marvel
-def get_superheros():
-    # get credentials
-    apikey = get_key('apikey')
-    ts = get_key('ts')
-    hash = get_key('hash')
-    # get url full path
-    url = url_fun('v1', 'public', 'characters')
-    # request data from url
-    args = {'apikey': apikey,
-            'ts': ts,
-            'hash': hash,
-            'limit': 100
-            }
-    headers = {'Content-Type': 'application/json'}
-    try:
-        response = requests.get(url, params=args, headers=headers)
-        response.raise_for_status()
-        if response.status_code == 200:
-            response = response.json()
-            return response
-    except requests.exceptions.HTTPError as error:
-        print(error.response.text)
-    except requests.exceptions.RequestException as error:
-        print(error.response.text)
-    return
+# # solicitud de conexion a la api de marvel
+# def get_superheros():
+#     # get credentials
+#     apikey = get_key('apikey')
+#     ts = get_key('ts')
+#     hash = get_key('hash')
+#     # get url full path
+#     url = url_fun('v1', 'public', 'characters')
+#     # request data from url
+#     args = {'apikey': apikey,
+#             'ts': ts,
+#             'hash': hash,
+#             'limit': 100
+#             }
+#     headers = {'Content-Type': 'application/json'}
+#     try:
+#         response = requests.get(url, params=args, headers=headers)
+#         response.raise_for_status()
+#         if response.status_code == 200:
+#             response = response.json()
+#             return response
+#     except requests.exceptions.HTTPError as error:
+#         print(error.response.text)
+#     except requests.exceptions.RequestException as error:
+#         print(error.response.text)
+#     return
 
 # salvar data en archivo.csv
-def save_dictionary_as_csv(dictionary, lista):
-    # built pandas tabular data with de dictironary useful data
-    df_headers = ('Name','Description','Image_URL','URL')
-    df_heros = pd.DataFrame(dictionary['data'][0].values()).transpose()
-    for i in range(1, len(lista)):
-        df_next = pd.DataFrame(dictionary['data'][i].values()).transpose()
-        df_heros = df_heros.append(df_next, ignore_index=True)
-    df_heros.columns = df_headers
-    # save tabular data into a csv file
-    df_heros.to_csv(this_folder + "/outputs/marvel_heros.csv", index=False)
-    return
+# def save_dictionary_as_csv(dictionary, lista):
+#     # built pandas tabular data with de dictironary useful data
+#     df_headers = ('Name','Description','Image_URL','URL')
+#     df_heros = pd.DataFrame(dictionary['data'][0].values()).transpose()
+#     for i in range(1, len(lista)):
+#         df_next = pd.DataFrame(dictionary['data'][i].values()).transpose()
+#         df_heros = df_heros.append(df_next, ignore_index=True)
+#     df_heros.columns = df_headers
+#     # save tabular data into a csv file
+#     df_heros.to_csv(this_folder + "/outputs/marvel_heros.csv", index=False)
+#     return
 
 # carga data desde archivo.csv
 def get_data_from_csv():
