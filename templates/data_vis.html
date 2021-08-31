@@ -9,8 +9,10 @@
   <div class="row">
     <div class="col border">
       <h4 class="title">Variables</h4>
-      the dataset is composed for 344 observation and 14 variables, the variables are:
-      <div id="wordCloudColumnsNames" style="height: 500px"></div>
+      <p class="bd-lead">
+        Both, training and prediction datasets are composed for 14 variables:
+      </p>
+      <div id="wordCloudColumnsNames" style="height: 400px"></div>
     </div>
   </div>
   
@@ -18,9 +20,11 @@
   <div class="row">
     <div class="col border">
       <h4 class="title">Gender distribution</h4>
-      About gender distribution we have that 225 are male, 96 are female and
+      <p class="bd-lead">
+        About gender distribution we have that 225 are male, 96 are female and
       23 are unclassified.
-      <canvas id="barChartGender" height="50" width="100"></canvas>
+      </p>
+      <canvas id="barChartGender" width="80%"></canvas>
     </div>
   </div>
   
@@ -28,9 +32,13 @@
   <div class="row">
     <div class="col border">
       <h4 class="title">Alignment distribution</h4>
-      241 of them are alignment as good, while 98 are alignment as bad and 5
+      <p class="bd-lead">
+        241 of them are alignment as good, while 98 are alignment as bad and 5
       are neutral.
-      <canvas id="barChartAlignment" height="200"></canvas>
+      </p>
+      <div class="w-50 p-3">
+        <canvas id="polarChartAlignment"></canvas>      
+      </div>
     </div>
   </div>
   
@@ -38,9 +46,11 @@
   <div class="row">
     <div class="col border">
       <h4 class="title">Race distribution</h4>
-      Talking about race, we have various kind of characters like humans,
+      <p class="bd-lead">
+        Talking about race, we have various kind of characters like humans,
       mutants, symbiotes and others, although most of them are undefined as
       you can see in the following graph.
+      </p>
       <div id="wordCloudRace" style="height: 500px"></div>
     </div>
   </div>
@@ -49,8 +59,10 @@
   <div class="row">
     <div class="col border">
       <h4 class="title">Level of power by gender</h4>
-      The level of power is higher on the side of the good guys, and male
+      <p class="bd-lead">
+        The level of power is higher on the side of the good guys, and male
       characters have more power than female.
+      </p>
       <div id="barChartPower" style="height: 500px"></div>
     </div>
   </div>
@@ -59,7 +71,9 @@
   <div class="row">
     <div class="col border">
       <h4 class="title">Level of power by Alignment</h4>
-      The level main powersis by  Alignment.
+      <p class="bd-lead">
+        The level of main powers by Alignment is:
+      </p>
       <div id="horizontalBarChartPower" style="height: 500px"></div>
     </div>
   </div>
@@ -94,8 +108,8 @@
         }
   });
 
-    // BarChart Aligment Distribution
-    var ctx = document.getElementById('barChartAlignment').getContext('2d');
+    // PolarChart Aligment Distribution
+    var ctx = document.getElementById('polarChartAlignment').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'polarArea',
         data: {
@@ -146,7 +160,17 @@
 </script>
 
 <script>
-  // Column Chart
+  // anychart.palettes.earth 
+  // anychart.palettes.monochrome 
+  // anychart.palettes.provence 
+  // anychart.palettes.morning 
+  // anychart.palettes.coffee 
+  // anychart.palettes.wines 
+  // anychart.palettes.pastel 
+  // anychart.palettes.blue 
+  // anychart.palettes.glamour 
+  // anychart.palettes.sea      
+  // column Chart Level of power by Gender and Alignment
   anychart.onDocumentReady(function () {
       // create data set on our data
       var data = {
@@ -155,6 +179,7 @@
         rows: {{ rows | safe }}
       };
       var chart = anychart.column();
+      chart.palette(anychart.palettes.pastel);
       chart.data(data);
       chart.animation(true);
       chart.yAxis().title('level of Power');
