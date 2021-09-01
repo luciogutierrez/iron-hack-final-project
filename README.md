@@ -6,40 +6,30 @@
 # End-to-end ML model example
 
 ## Overview
-Ironhack has provided us with a very important toolkit that we can use when working with ML models,
-for some of us (in my personal case). I went from not having tools, to have a lot and not knowing which ones to use.
-The objective of the project is to walk through the different processes involved in the generation
-of a machine learning model explaining what happened in each of them.
-The main ML procces could be as follow:
-* ETL
-    * Data Acquisition
-    * Data Cleaning
+The objective of the project is to walk, step by step through the different processes involved
+in the generation of a machine learning model:
+* 1. Extraction, Transformation and Loading (ETL)
+* 2. Data Visualization
+* 3. Machine Learning Model
+    * Model Selection
     * Feature Engineering
-* Data Visualization
-* Model Selection
-* Hyperparameter Adjustments
-* Model Validation
+    * Model Training
+    * Model Evaluation
+    * Model Prediction
+    * Model Validation
 
-## Api Requests
-In this section we will use the first three stages to extract data from the marvel Api in real time,
-make some transformations and show the results in a web page.
-* ETL
-    * Data Acquisition (Api request)
-    * Data Cleaning
-    * Feature Engineering
+## ETL
+In this section we will use ETL to extract data from the marvel Api, make some transformations
+and show the results in a web page. we'll use the followings techniques:
+* Data Acquisition (Api request)
+* Data Cleaning
+* Feature Engineering
 
-We'll use the dataset "Marvel Superheros" published in kaggle in the following link:
+Also We'll download the dataset "Marvel characters" published in kaggle in the following link:
 <a href="https://www.kaggle.com/dannielr/marvel-superheroes"
-    target="_blank">https://www.kaggle.com/dannielr/marvel_superheros</a>
-In fact the source contains 8 datasets so the first task we had
-to do was to analyze the content of each one and define the data we
-would use for our project. At the end we define two datasets, one to train the model with
-344 observations and 14 variables, and one more to test the model with 166 observations and 14
-variables.
-* ETL
-    * Data Acquisition (Api request)
-    * Data Cleaning
-    * Feature Engineering
+    target="_blank">kaggle-marvel-characters</a>
+At the end we'll define 2 datasets, 1 for training and 1 for predictions,
+The first has 344 rows and 14 variables, while the second has 166 rows and 14 variables.
 
 ## Data Visualization
 Data Visualization is the process of better understand the data using graphics and charts,

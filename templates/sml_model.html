@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block content %}
 <hr />
-<h2 class="title text-center">Supervised ML model</h2>
+<h2 class="title text-center">Machine Learning Model</h2>
 <hr />
 
 <div class="container-fluid bg-dark">
@@ -8,11 +8,38 @@
     <div class="row">
         <div class="col border">
             <br />
+            <h3 class="title">1. Model Selection</h3>
+            <p class="bd-lead">
+                We'll use the Logistic Regression model that is a classification algorithm used to predict the
+                probability of a
+                categorical dependent variable, which must be binary, that means that contain data coded as 1 (success)
+                or 0
+                (failure). In our example we will use the variable Alignment with the values 1 for good and 0 for bad.
+            </p>
+            <br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col border">
+            <br />
+            <h3 class="title">2. Feature Engineering</h3>
+            <p class="bd-lead">
+                Machine learning models admit only numerical values so we have to work on re-engineering the data by
+                converting categorical values into numerical ones, scaling all values to the same scale and defining the
+                variables that can be valuable for the model as well as eliminating those that do not provide any value.
+            </p>
+            <br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col border">
+            <br />
             <h5 class="title">Initial dataset</h5>
             <img src="/static/img1.png" />
             <p class="bd-lead">
-                We know that machine learning models admit only numerical values, we can identify the following aspects
-                to take into account:
+                In the fisrt view, we can identify the following aspects to take into account:
             </p>
             <ol class="bd-lead">
                 <li>Name is the Id variable where we add prediction values</li>
@@ -69,19 +96,20 @@
             <br />
             <h5 class="title">Balance train set</h5>
             <p class="bd-lead">
-                As we can see the training set is unbalanced in the dependent variable so we proceed to balance it.            
+                As we can see the training set is unbalanced in the dependent variable so we proceed to balance it.
             </p>
             <img src="/static/img7.png" />
             <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
             <br />
             <h5 class="title">Changing dependent varible to numeric values</h5>
             <p class="bd-lead">
-                The Logistic Regression model generates values 1 or 0 for the dependent variable, so we change the values 1 and 0 for good or bad Alignment respectively.                
+                The Logistic Regression model generates values 1 or 0 for the dependent variable, so we change the
+                values 1 and 0 for good or bad Alignment respectively.
             </p>
             <img src="/static/img8.png" />
             <br />
@@ -93,7 +121,8 @@
             <br />
             <h5 class="title">Selecting variables for the model</h5>
             <p class="bd-lead">
-                Not all variables in the dataset are needed for the model so we select the ones that we will load into the model.
+                Not all variables in the dataset are needed for the model so we select the ones that we will load into
+                the model.
             </p>
             <img src="/static/img9.png" />
             <br />
@@ -105,13 +134,14 @@
             <br />
             <h5 class="title">We change type to main variables</h5>
             <p class="bd-lead">
-                As we will work with generic functions that scale numeric variables and convert object variables to dummy. We change the type of the ID variable and the dependent variable.            
+                As we will work with generic functions that scale numeric variables and convert object variables to
+                dummy. We change the type of the ID variable and the dependent variable.
             </p>
             <img src="/static/img10.png" />
             <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
             <br />
@@ -123,7 +153,7 @@
             <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
             <br />
@@ -135,7 +165,7 @@
             <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
             <br />
@@ -147,28 +177,40 @@
             <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
             <br />
-            <h5 class="title">We train the model</h5>
+            <h3 class="title">3. Model Training</h3>
             <img src="/static/entrenamiento.jpg" />
             <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
             <br />
-            <h5 class="title">Review model precision</h5>
+            <h3 class="title">4. Model Metric Evaluation</h3>
             <p class="bd-lead">
-                The F1 classification report indicates that the accuracy of the model is 60% of positive predictions for bad and 58% for good.
+                The F1 classification report indicates that the accuracy of the model is 60% of positive predictions for
+                bad and 58% for good.
             </p>
             <img src="/static/img14.png" />
             <br />
         </div>
     </div>
-    
+
+    <div class="row">
+        <div class="col border">
+            <br />
+            <h3 class="title">5. Model Predictions</h3>
+            <p class="bd-lead">
+                In order to make the predictions of the target dataset, we need to perform the same transformations we did to the training dataset
+            </p>
+            <br />
+        </div>
+    </div>
+
     <div class="row">
         <div class="col border">
             <br />
@@ -180,7 +222,7 @@
             <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
             <br />
@@ -189,11 +231,10 @@
             <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
             <br />
-            <h5 class="title">Prediction results</h5>
             <img src="/static/img16.png" />
             <br />
         </div>
@@ -202,9 +243,10 @@
     <div class="row">
         <div class="col border">
             <br />
-            <h5 class="title">Prediction evaluation</h5>
+            <h3 class="title">6. Model Validation</h3>
             <p class="bd-lead">
-                as we can see in the graph 86 positive preditions for good alignment out of 117 while for bad alignment it made 37 fail identifications.
+                as we can see in the graph 86 positive preditions for good alignment out of 117 while for bad alignment
+                it made 37 fail identifications.
             </p>
             <img src="/static/img17.png" />
             <br />

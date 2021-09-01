@@ -10,19 +10,21 @@
             <br />
             <h3 class="title">Objective</h3>
             <h1 class="display-6">
-                Ironhack has provided us with a very important toolkit that we can use when working with ML models.
-                In my case, I went from not having tools, to have a lot and not knowing which ones to use.
-                <br /><br />
                 The objective of the project is to walk, step by step through the different processes involved in the
-                generation
-                of a machine learning model:
-                <br /><br />
+                generation of a machine learning model:
+                <br />
                 <ol class="paragraph">
-                    <li>Extraction, Transformation, Loading (ETL)</li>
+                    <li>Extraction, Transformation and Loading (ETL)</li>
                     <li>Data Visualization</li>
-                    <li>Model Selection</li>
-                    <li>Model Training / Prediction</li>
-                    <li>Model Validation</li>
+                    <li>Machine Learning Model</li>
+                    <ol>
+                        <li>Model Selection</li>
+                        <li>Feature Engineering</li>
+                        <li>Model Training </li>
+                        <li>Model Metric Evaluation</li>
+                        <li>Model Predictions</li>
+                        <li>Model Validation</li>
+                    </ol>
                 </ol>
             </h1>
         </div>
@@ -48,7 +50,7 @@
                     target="_blank">kaggle-marvel-characters</a>
                 <br />
                 <br />
-                At the end we'll define 2 datasets, 1 for training and 1 for predictions. the first has 344 rows and 14
+                At the end we'll define 2 datasets, 1 for training and 1 for predictions, the first has 344 rows and 14
                 variables, while the second has 166 rows and 14 variables.
             </h1>
             <br />
@@ -64,9 +66,11 @@
                 has the power to tell data-driven stories while allowing people to see patterns and relationships
                 found in data.
                 <br /><br />
-                In this section we will create and interpret different types of visualizations to better
-                understand the datases we are working with.
-                <img src="/static/data_charts.gif" width="900" height="500" class="center" />
+                In this section we will create and interpret different types of visualizations to better understand
+                datasets we are working with.
+                <br />
+                <img src="/static/piechart.gif" width="35%" />
+                <img src="/static/barchart.gif" width="40%" />
             </h1>
             <br />
         </div>
@@ -77,8 +81,8 @@
             <br />
             <h3 class="title">Machine Learning Model</h3>
             <h1 class="display-6">
-                In this section we will implement a Logistic Regression model to predict whether the
-                characters' alignment of second dataset are good or bad.
+                In this section we will implement step-by-step a machine learning model to predict whether the
+                characters in the target dataset are aligned to good or bad. 
                 <br /><br />
                 <img src="/static/model-processing.png" height="400" class="center" />
             </h1>
