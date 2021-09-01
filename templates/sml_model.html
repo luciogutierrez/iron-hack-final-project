@@ -4,133 +4,213 @@
 <hr />
 
 <div class="container-fluid bg-dark">
-    
+
     <div class="row">
         <div class="col border">
+            <br />
             <h5 class="title">Initial dataset</h5>
-            <img src="/static/img1.png"/>
+            <img src="/static/img1.png" />
+            <p class="bd-lead">
+                We know that machine learning models admit only numerical values, we can identify the following aspects
+                to take into account:
+            </p>
+            <ol class="bd-lead">
+                <li>Name is the Id variable where we add prediction values</li>
+                <li>Alignment is the dependent variable</li>
+                <li>Gender and Race have to be converter into dummies</li>
+                <li>Heights and Weight have different scale than other numeric variables</li>
+                <li>Power_Rank has to be deleted as it is duplicated with the individual values</li>
+                <li>Count has to be deleted as has unique value in all observations</li>
+            </ol>
+            <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
+            <br />
             <h5 class="title">Review variables types and nulls</h5>
-            <img src="/static/img2.png"/>
+            <img src="/static/img2.png" />
+            <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
+            <br />
+            <h5 class="title">Gender shape</h5>
+            <img src="/static/img3.png" />
+            <p class="bd-lead">
+                since in the target set there are no characters with "undefined" gender, we drop them in training set.
+            </p>
+            <h5 class="title">Gender reshape</h5>
+            <img src="/static/img4.png" />
+            <br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col border">
+            <br />
             <h5 class="title">Alignment shape</h5>
-            <img src="/static/img3.png"/>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col border">
+            <img src="/static/img5.png" />
+            <p class="bd-lead">
+                Logistic regression models work with binary variables, so in order to use this model we drop the 5
+                observations that are of the neutral type.
+            </p>
             <h5 class="title">Alignment reshape</h5>
-            <img src="/static/img4.png"/>
+            <img src="/static/img6.png" />
+            <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
-            <h5 class="title">Drop values in train set that no exists in target set</h5>
-            <img src="/static/img5.png"/>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col border">
+            <br />
             <h5 class="title">Balance train set</h5>
-            <img src="/static/img6.png"/>
+            <p class="bd-lead">
+                As we can see the training set is unbalanced in the dependent variable so we proceed to balance it.            
+            </p>
+            <img src="/static/img7.png" />
+            <br />
         </div>
     </div>
     
     <div class="row">
         <div class="col border">
-            <h5 class="title">Changing to numeric dependent varible</h5>
-            <img src="/static/img7.png"/>
+            <br />
+            <h5 class="title">Changing dependent varible to numeric values</h5>
+            <p class="bd-lead">
+                The Logistic Regression model generates values 1 or 0 for the dependent variable, so we change the values 1 and 0 for good or bad Alignment respectively.                
+            </p>
+            <img src="/static/img8.png" />
+            <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
+            <br />
             <h5 class="title">Selecting variables for the model</h5>
-            <img src="/static/img8.png"/>
+            <p class="bd-lead">
+                Not all variables in the dataset are needed for the model so we select the ones that we will load into the model.
+            </p>
+            <img src="/static/img9.png" />
+            <br />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col border">
+            <br />
             <h5 class="title">We change type to main variables</h5>
-            <img src="/static/img9.png"/>
+            <p class="bd-lead">
+                As we will work with generic functions that scale numeric variables and convert object variables to dummy. We change the type of the ID variable and the dependent variable.            
+            </p>
+            <img src="/static/img10.png" />
+            <br />
         </div>
     </div>
     
     <div class="row">
         <div class="col border">
+            <br />
             <h5 class="title">We scale numeric variables</h5>
-            <img src="/static/img10.png"/>
+            <p class="bd-lead">
+                We invoke the function that scales numerical variables and scale the training set.
+            </p>
+            <img src="/static/img11.png" />
+            <br />
         </div>
     </div>
     
     <div class="row">
         <div class="col border">
-          <h5 class="title">We convert the object variables to dummies</h5>
-          <img src="/static/img11.png"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col border">
-          <h5 class="title">We generate the values of "X" and "y".</h5>
-          <img src="/static/img12.png"/>
-      </div>
+            <br />
+            <h5 class="title">We convert the object variables to dummies</h5>
+            <p class="bd-lead">
+                We invoke the function that convert to dummy object variables and send the training set.
+            </p>
+            <img src="/static/img12.png" />
+            <br />
+        </div>
     </div>
     
     <div class="row">
         <div class="col border">
+            <br />
+            <h5 class="title">We generate the values of "X" and "y".</h5>
+            <p class="bd-lead">
+                "y" is the dependent variable and "X" is the independent variables than look as in the following view.
+            </p>
+            <img src="/static/img13.png" />
+            <br />
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col border">
+            <br />
             <h5 class="title">We train the model</h5>
-            <img src="/static/entrenamiento.jpg"/>
+            <img src="/static/entrenamiento.jpg" />
+            <br />
         </div>
     </div>
     
     <div class="row">
         <div class="col border">
+            <br />
             <h5 class="title">Review model precision</h5>
-            <img src="/static/img13.png"/>
+            <p class="bd-lead">
+                The F1 classification report indicates that the accuracy of the model is 60% of positive predictions for bad and 58% for good.
+            </p>
+            <img src="/static/img14.png" />
+            <br />
         </div>
     </div>
     
     <div class="row">
         <div class="col border">
+            <br />
             <h5 class="title">transformation of target dataset</h5>
-            <img src="/static/img14.png"/>
+            <p class="bd-lead">
+                We transform the target dataset to the same format as the training set.
+            </p>
+            <img src="/static/img15.png" />
+            <br />
         </div>
     </div>
     
     <div class="row">
         <div class="col border">
-          <h5 class="title">we make predictions</h5>
-          <img src="/static/predicciones.jpg" alt="predictions" width="300" height="300"/>
-      </div>
+            <br />
+            <h5 class="title">we make predictions</h5>
+            <img src="/static/predicciones.jpg" alt="predictions" width="300" height="300" />
+            <br />
+        </div>
     </div>
-
+    
     <div class="row">
-      <div class="col border">
-          <h5 class="title">Prediction results</h5>
-          <img src="/static/img15.png"/>
-      </div>
+        <div class="col border">
+            <br />
+            <h5 class="title">Prediction results</h5>
+            <img src="/static/img16.png" />
+            <br />
+        </div>
     </div>
-
+    
     <div class="row">
-      <div class="col border">
-          <h5 class="title">Prediction evaluation</h5>
-          <img src="/static/img16.png"/>
-      </div>
+        <div class="col border">
+            <br />
+            <h5 class="title">Prediction evaluation</h5>
+            <p class="bd-lead">
+                as we can see in the graph 86 positive preditions for good alignment out of 117 while for bad alignment it made 37 fail identifications.
+            </p>
+            <img src="/static/img17.png" />
+            <br />
+        </div>
     </div>
 
 </div>
-    
+
 {% endblock %}

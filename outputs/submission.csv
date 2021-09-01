@@ -1,14 +1,14 @@
 Name,Alignment,Prediction
 Abin Sur,good,good
-Adam Strange,good,bad
+Adam Strange,good,good
 Alan Scott,good,bad
 Alfred Pennyworth,good,good
 Amazo,bad,good
-Animal Man,good,good
-Anti-Monitor,bad,good
+Animal Man,good,bad
+Anti-Monitor,bad,bad
 Aquababy,good,bad
-Aqualad,good,bad
-Aquaman,good,bad
+Aqualad,good,good
+Aquaman,good,good
 Arsenal,good,good
 Atom,good,bad
 Atom,good,bad
@@ -28,7 +28,7 @@ Batman,good,good
 Batman II,good,good
 Beast Boy,good,bad
 Ben 10,good,bad
-Bizarro,neutral,bad
+Bizarro,neutral,good
 Black Adam,bad,bad
 Black Lightning,good,bad
 Blue Beetle,good,bad
@@ -48,12 +48,12 @@ Chameleon,bad,bad
 Cheetah II,bad,good
 Cheetah III,bad,good
 Colossal Boy,good,bad
-Cyborg,good,bad
+Cyborg,good,good
 Cyborg Superman,bad,good
 Darkseid,bad,bad
 Deadman,good,bad
 Deadshot,bad,good
-Deathstroke,neutral,good
+Deathstroke,neutral,bad
 Doctor Fate,good,bad
 Donna Troy,good,good
 Doomsday,bad,bad
@@ -65,7 +65,7 @@ Fighting Spirit,good,good
 Firestorm,good,bad
 Firestorm,good,bad
 Flash II,good,good
-Flash III,good,bad
+Flash III,good,good
 Flash IV,good,good
 Garbage Man,good,good
 General Zod,bad,good
@@ -85,19 +85,19 @@ Huntress,good,good
 Impulse,good,good
 Isis,good,good
 John Stewart,good,bad
-Joker,bad,good
+Joker,bad,bad
 Kid Flash,good,good
 Kid Flash II,good,bad
 Killer Croc,bad,bad
-Kilowog,good,bad
+Kilowog,good,good
 Krypto,good,good
-Lex Luthor,bad,bad
+Lex Luthor,bad,good
 Light Lass,good,good
 Lightning Lad,good,bad
 Lightning Lord,bad,bad
 Magog,good,bad
 Man-Bat,neutral,good
-Martian Manhunter,good,bad
+Martian Manhunter,good,good
 Match,bad,bad
 Maxima,bad,good
 Mera,good,good
@@ -105,10 +105,10 @@ Metallo,bad,bad
 Metamorpho,good,bad
 Metron,good,bad
 Micro Lad,good,bad
-Misfit,good,good
-Miss Martian,good,good
+Misfit,good,bad
+Miss Martian,good,bad
 Mister Freeze,bad,bad
-Mister Mxyzptlk,bad,good
+Mister Mxyzptlk,bad,bad
 Mogo,good,good
 Moloch,bad,bad
 Monarch,good,bad
@@ -130,10 +130,10 @@ Raven,neutral,good
 Red Arrow,good,good
 Red Hood,neutral,good
 Red Robin,good,good
-Red Tornado,good,bad
+Red Tornado,good,good
 Rick Flag,bad,bad
 Riddler,bad,bad
-Robin II,good,bad
+Robin II,good,good
 Robin III,good,good
 Robin V,good,good
 Rorschach,good,good
@@ -144,7 +144,7 @@ Siren,bad,good
 Siren II,bad,good
 Sobek,good,bad
 Solomon Grundy,bad,bad
-Space Ghost,good,good
+Space Ghost,good,bad
 Spectre,good,good
 Speedy,good,good
 Speedy,good,good
@@ -155,7 +155,7 @@ Superboy,good,bad
 Superboy-Prime,bad,good
 Supergirl,good,good
 Superman,good,good
-Swamp Thing,bad,good
+Swamp Thing,bad,bad
 The Comedian,neutral,good
 Triplicate Girl,good,good
 Two-Face,bad,bad
@@ -164,4 +164,4 @@ Wildfire,good,bad
 Wonder Girl,good,good
 Wonder Woman,good,good
 Zatanna,good,good
-Zoom,bad,bad
+Zoom,bad,good

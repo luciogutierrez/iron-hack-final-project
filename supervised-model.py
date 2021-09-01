@@ -35,6 +35,7 @@ def analysis_df_train():
     df_train.info()
     df_train.describe()
     df_train.isna().sum()
+    df_train.Race.value_counts()
     df_train.Alignment.value_counts()
     df_train.Alignment.value_counts(normalize=True)
     df_train.Gender.value_counts()
@@ -51,6 +52,7 @@ def analysis_df_target():
     df_target.info()
     df_target.describe()
     df_target.isna().sum()
+    df_target.Race.value_counts()
     df_target.Alignment.value_counts()
     df_target.Alignment.value_counts(normalize=True)
     df_target.Gender.value_counts()
@@ -69,9 +71,10 @@ def analysis_df_target():
 # --------------------------------------------------------------------
 def depuraTrainSet(df, df2):
     df = df.copy()
-    # depura del set de entrenamiento personajes de Razas que no existen en el set objetivo
+    # cambia por "indefinido" la raza para personajes de razas que no existen en el set objetivo
     df2_list = df2.Race.value_counts().index.tolist()
-    df.drop(df[~df.Race.isin(df2_list)].index, inplace = True)
+    # df.drop(df[~df.Race.isin(df2_list)].index, inplace = True)
+    df.Race = np.where(df.Race.isin(df2_list), df.Race, 'undefined')
     
     # depura del set de entrenamiento personajes sin genero definido ya no existen de este tipo en el set objetivo
     df.drop(df[df.Gender=='undefined'].index, axis=0, inplace=True)
