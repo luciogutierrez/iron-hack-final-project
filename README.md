@@ -5,22 +5,39 @@
 
 # Marvel Comics data analysis
 
+### by Lucio Gutiérrez Román
+
 ## Overview
-The objective of the project is to walkthrough on some of the main skills learned at "Data
-Analytics" bootcamp, through the world of Marvel Comics.
+The project's goal is walkthrough some skills learned at the bootcamp by
+analysis the characters of Marvel Comics.
 
-## ETL
-In this section we will use ETL to extract data from the Marvel API, make some transformations
-and show the results in a web page. we'll use the followings techniques:
-* Data Acquisition (Api request)
+Hypothesis: Machine learning models can be implemented in a
+systematically way...
+
+Test hypothesis: We will develop step-by-step a path to implement a
+machine learning model.
+
+I have used the following technologies learned in this course: Python,
+Flask, Api requests, Data Analysis, Data Visualization, Machine
+Learning, Pythonanywhere, among others.
+
+## Data Preparation
+
+In this section we will prepare the data to be used in the machine
+learning model:
+In this section we will prepare the data to be used in the machine
+learning model:
+Data Acquisition
+* Marvel Api <a href="https://developer.marvel.com/" target="_blank">https://developer.marvel.com/</a>
+* Keggle Marvel Superheros datasets <a href="https://www.kaggle.com/dannielr/marvel-superheroes"
+            target="_blank">kaggle-marvel-superheros</a>
+* Data Wrangling
 * Data Cleaning
-* Data Loading
+* Data Analysis
+* Data Sotorage
 
-Also We'll download the dataset "Marvel Superheros" published in kaggle in the following link:
-<a href="https://www.kaggle.com/dannielr/marvel-superheroes"
-    target="_blank">kaggle-marvel-superheros</a>
-At the end we'll define 2 datasets, 1 for training and 1 for predictions,
-The first has 344 rows and 14 variables, while the second has 166 rows and 14 variables.
+to define 2 datasets, 1 for training and 1 for predictions.
+
 
 ## Data Visualization
 Data Visualization is the process of better understanding the data using graphics and charts,
@@ -32,9 +49,7 @@ datasets we are working with.
 <img src="./static/piechart.gif" alt="drawing" height='300' width="900"/>
 
 ## Machine Learning Model
-Supervised ML model
-In this section we will implement step-by-step a machine learning model to predict whether the
-characters in the target dataset are aligned to good or bad:
+In this section we will develop step-by-step a machine learning model:
 * Model Selection
 * Feature Engineering
 * Model Training

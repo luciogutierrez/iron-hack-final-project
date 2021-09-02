@@ -3,44 +3,59 @@
 <h2 class="title text-center">Marvel Comics data analysis</h2>
 <hr />
 
-<div class="container-fluid  bg-dark">
-
+<div class="container-fluid bg-dark">
     <div class="row">
         <div class="col border">
             <br />
             <h3 class="title">Overview</h3>
             <h1 class="display-6">
-                The project's goal is walkthrough on some of the main skills learned at the bootcamp, through
-                analysis of the characters of Marvel Comics.
+                The project's goal is walkthrough some skills learned at the bootcamp by
+                analysis the characters of Marvel Comics.
                 <br /><br />
+                Hypothesis: Machine learning models can be implemented in a
+                systematically way...
+                <br /><br />
+                Test hypothesis: We will develop step-by-step a path to implement a
+                machine learning model.
+                <br /><br />
+                I have used the following technologies learned in this course: Python,
+                Flask, Api requests, Data Analysis, Data Visualization and Machine Learning.
             </h1>
+            <br />
         </div>
     </div>
 
     <div class="row">
         <div class="col border">
             <br />
-            <h3 class="title">ETL</h3>
+            <h3 class="title">Data Preparation</h3>
             <h1 class="display-6">
-                In this section we will use ETL to extract data from the Marvel API,
-                make some transformations and show the results in a web page. we'll use the followings techniques:
+                In this section we will prepare the data to be used in the machine
+                learning model:
+                <br /><br />
                 <ul>
+                    <li>Data Acquisition</li>
                     <ul>
-                        <li>Data Acquisition (Api request)</li>
-                        <li>Data Cleaning</li>
-                        <li>Data Loading</li>
+                        <li>
+                            Marvel Api
+                            <a href="https://developer.marvel.com/" target="_blank">https://developer.marvel.com/</a>
+                        </li>
+                        <li>
+                            Keggle Marvel Superheros datasets
+                            <a href="https://www.kaggle.com/dannielr/marvel-superheroes"
+                                target="_blank">kaggle-marvel-superheros</a>
+                        </li>
                     </ul>
+                    <li>Data Wrangling</li>
+                    <li>Data Cleaning</li>
+                    <li>Data Analysis</li>
+                    <li>Data Sotorage</li>
                 </ul>
-                <br />
-                Also We'll download the dataset published in kaggle in the following link:
-                <a href="https://www.kaggle.com/dannielr/marvel-superheroes"
-                    target="_blank">kaggle-marvel-superheros</a>
-                <br />
-                <br />
-                At the end we'll define 2 datasets, 1 for training and 1 for predictions, the first has 344 rows and 14
-                variables, while the second has 166 rows and 14 variables.
+                to define 2 datasets, 1 for training and 1 for predictions.
             </h1>
-            <br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
         </div>
     </div>
 
@@ -49,17 +64,18 @@
             <br />
             <h3 class="title">Data Visualization</h3>
             <h1 class="display-6">
-                Data Visualization is the process of better understanding the data using graphics and charts,
-                has the power to tell data-driven stories while allowing people to see patterns and relationships
-                found in data.
+                Data Visualization is the process of better understanding the data using
+                graphics and charts, has the power to tell data-driven stories while
+                allowing people to see patterns and relationships found in data.
                 <br /><br />
-                In this section we will create and interpret different types of visualizations to better understand
-                datasets we are working with.
+                In this section we will create and interpret different types of
+                visualizations to better understand datasets we are working with.
                 <br />
                 <img src="/static/piechart.gif" width="35%" />
                 <img src="/static/barchart.gif" width="40%" />
             </h1>
-            <br />
+            <br /><br />
+            <br /><br />
         </div>
     </div>
 
@@ -68,20 +84,22 @@
             <br />
             <h3 class="title">Machine Learning Model</h3>
             <h1 class="display-6">
-                <ol>
-                    <li>Model Selection</li>
-                    <li>Feature Engineering</li>
-                    <li>Model Training </li>
-                    <li>Model Evaluation</li>
-                    <li>Model Predictions</li>
-                    <li>Model Validation</li>
-                </ol>
+                In this section we will develop step-by-step a machine learning model:
+                <ul>
+                    <ol>
+                        <li>Model Selection</li>
+                        <li>Feature Engineering</li>
+                        <li>Model Training</li>
+                        <li>Model Evaluation</li>
+                        <li>Model Predictions</li>
+                        <li>Model Validation</li>
+                    </ol>
+                </ul>
                 <img src="/static/model-processing.png" height="400" class="center" />
             </h1>
             <br />
         </div>
     </div>
-
 </div>
 
 {% endblock %}

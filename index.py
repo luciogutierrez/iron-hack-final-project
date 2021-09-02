@@ -168,6 +168,11 @@ def data_vis():
 def sml_model():
     return render_template('sml_model.html')
 
+# conclusion
+@app.route('/conclusion') 
+def conclusion():
+    return render_template('conclusion.html')
+
 # definición de pagina acerca de...
 @app.route('/about') 
 def about():
