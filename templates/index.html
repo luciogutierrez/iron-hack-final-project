@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block content %}
 <hr />
-<h2 class="title text-center">End-to-end ML model example</h2>
+<h2 class="title text-center">A little taste of some skills learned at "Data Analytics" bootcamp</h2>
 <hr />
 
 <div class="container-fluid  bg-dark">
@@ -10,21 +10,21 @@
             <br />
             <h3 class="title">Objective</h3>
             <h1 class="display-6">
-                The objective of the project is to walk, step by step through the different processes involved in the
-                generation of a machine learning model:
-                <br />
+                The objective of the project is to walkthrough on some of the main skills learned at "Data
+                Analytics" bootcamp, through the world of Marvel Comics.
+                <br /><br />
                 <ol>
-                    <li>Extraction, Transformation and Loading (ETL)</li>
+                    <li>ETL (Marvel Api and datasets downloaded from kaggle)</li>
                     <li>Data Visualization</li>
                     <li>Machine Learning Model</li>
-                    <ol>
+                    <ul>
                         <li>Model Selection</li>
                         <li>Feature Engineering</li>
                         <li>Model Training </li>
-                        <li>Model Metric Evaluation</li>
+                        <li>Model Evaluation</li>
                         <li>Model Predictions</li>
                         <li>Model Validation</li>
-                    </ol>
+                    </ul>
                 </ol>
             </h1>
         </div>
@@ -35,19 +35,19 @@
             <br />
             <h3 class="title">ETL</h3>
             <h1 class="display-6">
-                In this section we will use ETL to extract data from the marvel Api,
+                In this section we will use ETL to extract data from the Marvel API,
                 make some transformations and show the results in a web page. we'll use the followings techniques:
                 <ul>
                     <ul>
                         <li>Data Acquisition (Api request)</li>
                         <li>Data Cleaning</li>
-                        <li>Feature Engineering</li>
+                        <li>Data Loading</li>
                     </ul>
                 </ul>
                 <br />
-                Also We'll download the dataset "Marvel characters" published in kaggle in the following link:
+                Also We'll download the dataset published in kaggle in the following link:
                 <a href="https://www.kaggle.com/dannielr/marvel-superheroes"
-                    target="_blank">kaggle-marvel-characters</a>
+                    target="_blank">kaggle-marvel-superheros</a>
                 <br />
                 <br />
                 At the end we'll define 2 datasets, 1 for training and 1 for predictions, the first has 344 rows and 14
@@ -82,7 +82,7 @@
             <h3 class="title">Machine Learning Model</h3>
             <h1 class="display-6">
                 In this section we will implement step-by-step a machine learning model to predict whether the
-                characters in the target dataset are aligned to good or bad. 
+                characters in the target dataset are aligned to good or bad.
                 <br /><br />
                 <img src="/static/model-processing.png" height="400" class="center" />
             </h1>
