@@ -3,21 +3,11 @@
 <!-- ![Marvel](./imgs/avengers.gif) -->
 <img src="./static/avengers.gif" alt="drawing" height='250' width="1000"/>
 
-# A little taste of some skills learned at "Data Analytics" bootcamp
+# Marvel Comics data analysis
 
 ## Overview
 The objective of the project is to walkthrough on some of the main skills learned at "Data
 Analytics" bootcamp, through the world of Marvel Comics.
-
-* 1. ETL (Marvel Api and datasets downloaded from kaggle)
-* 2. Data Visualization
-* 3. Machine Learning Model
-    * Model Selection
-    * Feature Engineering
-    * Model Training
-    * Model Evaluation
-    * Model Prediction
-    * Model Validation
 
 ## ETL
 In this section we will use ETL to extract data from the Marvel API, make some transformations
@@ -44,8 +34,13 @@ datasets we are working with.
 ## Machine Learning Model
 Supervised ML model
 In this section we will implement step-by-step a machine learning model to predict whether the
-characters in the target dataset are aligned to good or bad.
-
+characters in the target dataset are aligned to good or bad:
+* Model Selection
+* Feature Engineering
+* Model Training
+* Model Evaluation
+* Model Prediction
+* Model Validation
 <img src="./static/model-processing.png" alt="drawing" height='300' width="900"/>
 
 ## Useful Resources
