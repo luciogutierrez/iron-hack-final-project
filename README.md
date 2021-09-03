@@ -14,7 +14,7 @@ analysis the characters of Marvel Comics.
 Hypothesis: Machine learning models can be implemented in a
 systematically way...
 
-Test hypothesis: We will implement a machine learning model step-by-step.
+Test hypothesis: We will implement a machine learning model step-by-step using generical fuctions.
 
 I have used the following technologies learned in this course: Python,
 Flask, Api requests, Data Analysis, Data Visualization, Machine
