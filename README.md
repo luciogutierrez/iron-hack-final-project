@@ -3,13 +3,14 @@
 <!-- ![Marvel](./imgs/avengers.gif) -->
 <img src="./static/avengers.gif" alt="drawing" height='250' width="1000"/>
 
-# Marvel Comics data analysis
+# Marvel Comics end-to-end ML model
 
 ### by Lucio Gutiérrez Román
 
 ## Overview
-The project's goal is walkthrough some skills learned at the bootcamp by
-analysis the characters of Marvel Comics.
+The project's goal is implement a end-to-end ML model support us by
+Marvel Comics Characters.
+
 
 Hypothesis: Machine learning models can be implemented in a
 systematically way...
