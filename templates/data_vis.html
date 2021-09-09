@@ -1,26 +1,14 @@
 {% extends "layout.html" %} {% block content %}
 <hr />
-<h2 class="title text-center">Data Visualization</h2>
+<h2 class="title text-center">Data Visualization (training set)</h2>
 <hr />
 
 <div class="container-fluid bg-dark text-white">
-
-  <!-- wordCloud Race distribution -->
-  <!-- <div class="row">
-    <div class="col border">
-      <h4 class="title">Variables</h4>
-      <p class="bd-lead">
-        Both, training and prediction datasets are composed for 14 variables:
-      </p>
-      <div id="wordCloudColumnsNames" style="height: 400px"></div>
-    </div>
-  </div> -->
-
   <!-- BarChart Gender distribution -->
   <div class="row">
-    <div class="col border">
-      <h2 class="title">Train set data visialization </h2>
-      <h4 class="title">Gender distribution</h4>
+    <div class="col border  border-secondary">
+      <br />
+      <div class="title2">Gender distribution</div>
       <p class="bd-lead">
         About gender distribution we have that 225 are male, 96 are female and
         23 are unclassified.
@@ -30,25 +18,26 @@
       </div>
     </div>
   </div>
-
+  
   <!-- polarChart Alignment distribution -->
   <div class="row">
-    <div class="col border">
-      <h4 class="title">Alignment distribution</h4>
+    <div class="col border  border-secondary">
+      <br />
+      <div class="title2">Alignment distribution</div>
       <p class="bd-lead">
-        241 of them are alignment as good, while 98 are alignment as bad and 5
-        are neutral.
+        241 of them are alignment as good, while 98 are alignment as bad and 5 are neutral.
       </p>
       <div class="w-50 p-3">
         <canvas id="polarChartAlignment"></canvas>
       </div>
     </div>
   </div>
-
+  
   <!-- wordCloud Race distribution -->
   <div class="row">
-    <div class="col border">
-      <h4 class="title">Race distribution</h4>
+    <div class="col border  border-secondary">
+      <br />
+      <div class="title2">Race distribution</div>
       <p class="bd-lead">
         Talking about race, we have various kind of characters like humans,
         mutants, symbiotes and others, although most of them are undefined as
@@ -57,11 +46,12 @@
       <div id="wordCloudRace" style="height: 500px"></div>
     </div>
   </div>
-
+  
   <!-- barChartPower average power -->
   <div class="row">
-    <div class="col border">
-      <h4 class="title">Level of power by gender</h4>
+    <div class="col border  border-secondary">
+      <br />
+      <div class="title2">Level of power by gender</div>
       <p class="bd-lead">
         The level of power is higher on the side of the good guys, and male
         characters have more power than female.
@@ -69,18 +59,16 @@
       <div id="barChartPower" style="height: 500px"></div>
     </div>
   </div>
-
+  
   <!-- horizaontal barChartPower power -->
   <div class="row">
-    <div class="col border">
-      <h4 class="title">Level of power by Alignment</h4>
-      <p class="bd-lead">
-        The level of main powers by Alignment is:
-      </p>
+    <div class="col border  border-secondary">
+      <br />
+      <div class="title2">Level of power by Alignment</div>
+      <p class="bd-lead">The level of main powers by Alignment is:</p>
       <div id="horizontalBarChartPower" style="height: 500px"></div>
     </div>
   </div>
-
 </div>
 
 {% block javascript %}
@@ -91,16 +79,16 @@
     type: 'bar',
     data: {
       labels: {{ labels[0] | safe }},
-  datasets: [{
-    label: 'Gender distribution',
-    data: {{ values[0] | safe }},
-    fill: true,
-    lineTension: 0.1,
-    backgroundColor: [
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(255, 206, 86, 0.2)'
-  ],
+      datasets: [{
+        label: 'Gender distribution',
+        data: {{ values[0] | safe }},
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)'
+        ],
     borderColor: [
     'rgba(255, 99, 132, 1)',
     'rgba(54, 162, 235, 1)',
@@ -108,7 +96,7 @@
   ],
     borderWidth: 1
     }]
-        }
+  }
   });
 
   // PolarChart Aligment Distribution
@@ -140,8 +128,7 @@
 
 <script>
   anychart.onDocumentReady(function () {
-    var data = {{ dictionary[0] | safe
-  }};
+    var data = {{ dictionary[0] | safe }};
   var chart = anychart.tagCloud(data);
   chart.title('dataset variables')
   chart.angles([0])
@@ -152,40 +139,46 @@
   });
 
   anychart.onDocumentReady(function () {
-    var data = {{ dictionary[1] | safe
-  }};
+    var data = {{ dictionary[1] | safe }};
   var chart = anychart.tagCloud(data);
   chart.title('More races presented')
   chart.angles([0])
   chart.colorRange(false);
   chart.colorRange().length('80%');
   chart.container("wordCloudRace");
+  chart.background().fill({
+  keys: ["#0a0a0a", "#292929", "#0a0a0a"],
+  angle: 130,
+  });  
   chart.draw();
   });
 </script>
 
 <script>
-  // anychart.palettes.earth 
-  // anychart.palettes.monochrome 
-  // anychart.palettes.provence 
-  // anychart.palettes.morning 
-  // anychart.palettes.coffee 
-  // anychart.palettes.wines 
-  // anychart.palettes.pastel 
-  // anychart.palettes.blue 
-  // anychart.palettes.glamour 
-  // anychart.palettes.sea      
+  // anychart.palettes.earth
+  // anychart.palettes.monochrome
+  // anychart.palettes.provence
+  // anychart.palettes.morning
+  // anychart.palettes.coffee
+  // anychart.palettes.wines
+  // anychart.palettes.pastel
+  // anychart.palettes.blue
+  // anychart.palettes.glamour
+  // anychart.palettes.sea
   // column Chart Level of power by Gender and Alignment
   anychart.onDocumentReady(function () {
     // create data set on our data
     var data = {
       title: 'Level of power by Gender and Alignment',
-      header: {{ headers | safe
-  }},
+      header: {{ headers | safe }},
     rows: {{ rows | safe }}
       };
   var chart = anychart.column();
   chart.palette(anychart.palettes.pastel);
+  chart.background().fill({
+  keys: ["#0a0a0a", "#292929", "#0a0a0a"],
+  angle: 130,
+  });  
   chart.data(data);
   chart.animation(true);
   chart.yAxis().title('level of Power');
@@ -266,13 +259,16 @@
       .padding([0, 0, 20, 0]);
 
     chart.container('horizontalBarChartPower');
+    chart.background().fill({
+    keys: ["#0a0a0a", "#292929", "#0a0a0a"],
+    angle: 130,
+    });  
     chart.draw();
   });
 
   function getData() {
     return {{ levelOfPower | safe }};
   }
-
 </script>
 
 {% endblock %} {% endblock %}

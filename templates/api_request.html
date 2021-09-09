@@ -6,27 +6,21 @@
 <div class="container-fluid bg-dark text-white">
 
   <div class="row">
-    <div class="col border">
-      <h4 class="title">Marvel's characters catalog</h4>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-1 border">#</div>
-    <div class="col-3 border">Name</div>
-    <div class="col-5 border">Description</div>
-    <div class="col-3 border">Image</div>
+    <div class="col-1 border  border-secondary">#</div>
+    <div class="col-3 border  border-secondary">Name</div>
+    <div class="col-5 border  border-secondary">Description</div>
+    <div class="col-3 border  border-secondary">Image</div>
   </div>
   {% for i in range(longitud) %}
   <div class="row">
-    <div class="col-1 border">{{ loop.index }}</div>
-    <div class="col-3 border">
+    <div class="col-1 border  border-secondary">{{ loop.index }}</div>
+    <div class="col-3 border  border-secondary">
       <a href="{{ heros['data'][i]['hero_url'] }}" target="_blank">
         {{ heros['data'][i]['hero_name'] }}</a>
     </div>
-    <div class="col-5 border">{{ heros['data'][i]['hero_desc'] }}
+    <div class="col-5 border  border-secondary">{{ heros['data'][i]['hero_desc'] }}
     </div>
-    <div class="col-3 border">
+    <div class="col-3 border  border-secondary">
       <img src="{{ heros['data'][i]['hero_img'] }}" width="100%" />
     </div>
   </div>

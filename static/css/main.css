@@ -36,7 +36,7 @@ imag.img-thumbnail{
 }
 
 a:link {
-  color: blue;
+  color: yellow;
   background-color: transparent;
   text-decoration: none;
 }
@@ -48,7 +48,7 @@ a:visited {
 }
 
 a:hover {
-  color: pink;
+  color: orange;
   background-color: transparent;
   text-decoration: underline;
 }
@@ -63,13 +63,13 @@ a:active {
   max-width: 100%;
   margin-bottom: 1rem;
   font-size: 1.5rem;
+  font-weight: 100;
 }
 
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 82%;
 }
 
 .paragraph {
@@ -80,6 +80,20 @@ a:active {
 
 .title {
   color: Aqua;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.title2 {
+  font-size:30px;
+  color: #0DCAF0;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.subtitle {
+  font-size:25px;
+  color: #0DCAF0;
   background-color: transparent;
   text-decoration: none;
 }
