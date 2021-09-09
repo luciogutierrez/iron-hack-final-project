@@ -245,11 +245,11 @@
 
     var series;
     series = chart.bar(secondSeriesData);
-    series.name('bad');
+    series.name('good');
     series.tooltip().position('right').anchor('left-center');
     
     series = chart.bar(firstSeriesData);
-    series.name('good');
+    series.name('bad');
     series.tooltip().position('left').anchor('right-center');
     chart
       .legend()
