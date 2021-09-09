@@ -65,7 +65,7 @@
     <div class="col border  border-secondary">
       <br />
       <div class="title2">Level of power by Alignment</div>
-      <p class="bd-lead">The level of main powers by Alignment is:</p>
+      <p class="bd-lead">The level of main power by Alignment</p>
       <div id="horizontalBarChartPower" style="height: 500px"></div>
     </div>
   </div>
@@ -76,11 +76,11 @@
   // BarChart Gender Distribution
   var ctx = document.getElementById('barChartGender').getContext('2d');
   var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'doughnut',
     data: {
       labels: {{ labels[0] | safe }},
       datasets: [{
-        label: 'Gender distribution',
+        label: 'Female',
         data: {{ values[0] | safe }},
         fill: true,
         lineTension: 0.1,
@@ -147,7 +147,7 @@
   chart.colorRange().length('80%');
   chart.container("wordCloudRace");
   chart.background().fill({
-  keys: ["#0a0a0a", "#292929", "#0a0a0a"],
+  keys: ["#0a0a0a", "#00008b", "#0a0a0a"],
   angle: 130,
   });  
   chart.draw();
@@ -176,7 +176,7 @@
   var chart = anychart.column();
   chart.palette(anychart.palettes.pastel);
   chart.background().fill({
-  keys: ["#0a0a0a", "#292929", "#0a0a0a"],
+  keys: ["#0a0a0a", "#00238b", "#0a0a0a"],
   angle: 130,
   });  
   chart.data(data);
@@ -260,7 +260,7 @@
 
     chart.container('horizontalBarChartPower');
     chart.background().fill({
-    keys: ["#0a0a0a", "#292929", "#0a0a0a"],
+    keys: ["#0a0a0a", "#00008b", "#0a0a0a"],
     angle: 130,
     });  
     chart.draw();
