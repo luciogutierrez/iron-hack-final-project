@@ -1,6 +1,7 @@
 import os
 import requests
 import pandas as pd
+import numpy as np
 from flask import Flask, render_template
 
 this_folder = os.path.dirname(os.path.abspath(__file__))
@@ -136,7 +137,7 @@ def data_vis():
     labels.append(df.Gender.to_list())
     values.append(df.Count.to_list())
     
-    # Barchart Alignment distribution
+    # Polarchart Alignment distribution
     df = data.groupby(['Alignment']).agg({'Count':'sum'}).reset_index()
     labels.append(df.Alignment.to_list())
     values.append(df.Count.to_list())
@@ -146,16 +147,16 @@ def data_vis():
     df.rename(columns={'Race':'x', 'Count':'value'}, inplace=True)
     dictionary.append(df.to_dict('records'))
     
-    # columnChart    
-    table = pd.pivot_table(data, values='Power_Rank', index='Gender', columns='Alignment', aggfunc='sum').reset_index()
+    # columnChart level of power by gender
+    table = pd.pivot_table(data, values='Power_Rank', index='Gender', columns='Alignment', aggfunc=np.mean).reset_index()
     table = table.fillna(0)
     headers = list(table.columns.values)
     rows = table.values.tolist()
 
-    # horizontalBarChart level of power
+    # horizontalBarChart level of individual power
     cols = ['Alignment','Intelligence', 'Strength', 'Speed', 'Durability', 'Power', 'Combat']
     df_temp = data[cols]
-    df = df_temp.groupby(['Alignment']).sum()
+    df = df_temp.groupby(['Alignment']).mean()
     dft = df.T.reset_index()
     dft.rename(columns={'index':'Alignment'}, inplace=True)
     dft.drop(columns='neutral', axis=1, inplace=True)
