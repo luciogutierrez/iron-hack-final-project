@@ -35,7 +35,7 @@
             <div class="subtitle">Initial dataset</div>
             <img src="/static/img1.png" />
             <p class="bd-lead">
-                In the fisrt view, we can identify many aspects to take into account.
+                This is the initial dataset and we can identify some features that we have to attend.
             </p>
             <br />
         </div>
@@ -47,7 +47,7 @@
             <div class="subtitle">Gender shape</div>
             <img src="/static/img3.png" />
             <p class="bd-lead">
-                since in the target set there are no characters with "undefined" gender, we drop them in training set.
+                Since in the target set there are no characters with "undefined" gender, we drop those in training set.
             </p>
             <div class="subtitle">Gender reshape</div>
             <img src="/static/img4.png" />
@@ -61,8 +61,8 @@
             <div class="subtitle">Alignment shape</div>
             <img src="/static/img5.png" />
             <p class="bd-lead">
-                Logistic regression models work with binary variables, so in order to use this model we drop the 5
-                observations that are of the neutral type.
+                Logistic Regression model works with binary variables, so we drop the "neutral" observations in
+                dependent variable.
             </p>
             <div class="subtitle">Alignment reshape</div>
             <img src="/static/img6.png" />
@@ -75,8 +75,7 @@
             <br />
             <div class="subtitle">Balance train set</div>
             <p class="bd-lead">
-                As we can see the training set is unbalanced in the dependent variable so we proceed to balance it using
-                oversapling method.
+                As we can see the dependent variable is unbalanced so we proceed to balance it using oversapling method.
             </p>
             <img src="/static/img7.png" />
             <br />
@@ -100,8 +99,7 @@
             <br />
             <div class="subtitle">Selecting variables for the model</div>
             <p class="bd-lead">
-                Not all variables in the dataset are needed for the model so we select the ones that we will load into
-                the model.
+                We select variables to load in in the model.
             </p>
             <img src="/static/img9.png" />
             <br />
@@ -113,7 +111,7 @@
             <br />
             <div class="subtitle">We scale numeric variables</div>
             <p class="bd-lead">
-                We invoke the function that scales numerical variables and scale the training set.
+                We scale numerical variables.
             </p>
             <img src="/static/img11.png" />
             <br />
@@ -123,9 +121,9 @@
     <div class="row">
         <div class="col border  border-secondary">
             <br />
-            <div class="subtitle">We convert object variables to dummies</div>
+            <div class="subtitle">We generate dummies variables</div>
             <p class="bd-lead">
-                We invoke the function that convert to dummy object variables and send the training set.
+                We convert variables' type object into dummy variables.
             </p>
             <img src="/static/img12.png" />
             <br />
@@ -135,9 +133,9 @@
     <div class="row">
         <div class="col border  border-secondary">
             <br />
-            <div class="subtitle">We generate the values of "X" and "y"</div>
+            <div class="subtitle">We generate values "X" and "y"</div>
             <p class="bd-lead">
-                "y" is the dependent variable and "X" is the independent variables than look as in the following view.
+                This is what the final dataset "X" looks like with which we will train the model
             </p>
             <img src="/static/img13.png" />
             <br />
@@ -158,8 +156,7 @@
             <br />
             <div class="title2">4. Model Evaluation</div>
             <p class="bd-lead">
-                The F1 classification report indicates that the accuracy of the model is 60% of positive predictions for
-                bad and 58% for good.
+                The F1 classification report indicates that the accuracy positive prediction is 60% and negative is 58%.
             </p>
             <img src="/static/img14.png" />
             <br />
@@ -170,10 +167,6 @@
         <div class="col border  border-secondary">
             <br />
             <div class="title2">5. Model Predictions</div>
-            <p class="bd-lead">
-                In order to make the predictions of the target dataset, we need to perform the same transformations we
-                did to the training dataset
-            </p>
             <br />
         </div>
     </div>
@@ -181,7 +174,7 @@
     <div class="row">
         <div class="col border  border-secondary">
             <br />
-            <div class="subtitle">Target dataset transformation</div>
+            <div class="subtitle">We transform the target dataset</div>
             <img src="/static/img15.png" />
             <br />
         </div>
@@ -190,7 +183,7 @@
     <div class="row">
         <div class="col border  border-secondary">
             <br />
-            <div class="subtitle">We make predictions</div>
+            <div class="subtitle">We make the predictions</div>
             <img src="/static/predicciones.jpg" alt="predictions" width="300" height="300" />
             <br />
         </div>
