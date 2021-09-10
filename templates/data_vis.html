@@ -10,7 +10,7 @@
       <br />
       <div class="title2">Gender distribution</div>
       <p class="bd-lead">
-        About gender distribution we have that 225 are male, 96 are female and
+        About gender distribution we have that 225 characters are male, 96 are female and
         23 are unclassified.
       </p>
       <div class="w-50 p-3">
@@ -25,8 +25,7 @@
       <br />
       <div class="title2">Alignment distribution</div>
       <p class="bd-lead">
-        241 of them are alignment as good, while 98 are alignment as bad and 5
-        are neutral.
+        The chart shows that 241 are alignment as good while 98 are alignment as bad and 5 are neutral.
       </p>
       <div class="w-50 p-3">
         <canvas id="polarChartAlignment"></canvas>
@@ -40,8 +39,8 @@
       <br />
       <div class="title2">Race distribution</div>
       <p class="bd-lead">
-        Talking about race, we have various kind of characters like humans,
-        mutants, symbiotes and others, although most of them are undefined.
+        Talking about race we have different kinds like humans, mutants, symbiotes and others, although most of them are
+        undefined.
       </p>
       <div id="wordCloudRace" style="height: 500px"></div>
     </div>
@@ -53,7 +52,7 @@
       <br />
       <div class="title2">Level of power by gender</div>
       <p class="bd-lead">
-        The average level of power is higher of the neutral male, and bad female have more power than goods.
+        The average level of power is higher of the neutral male and bad female have more power than goods.
       </p>
       <div id="barChartPower" style="height: 500px"></div>
     </div>
@@ -127,7 +126,8 @@
 
 <script>
   anychart.onDocumentReady(function () {
-  var data = {{ dictionary[0] | safe }};
+    var data = {{ dictionary[0] | safe
+  }};
   var chart = anychart.tagCloud(data);
   chart.title('dataset variables')
   chart.angles([0])
@@ -138,7 +138,8 @@
   });
 
   anychart.onDocumentReady(function () {
-  var data = {{ dictionary[1] | safe }};
+    var data = {{ dictionary[1] | safe
+  }};
   var chart = anychart.tagCloud(data);
   chart.title('More races presented')
   chart.angles([0])
@@ -169,35 +170,36 @@
     // create data set on our data
     var data = {
       title: 'Level of power by Gender and Alignment',
-      header: {{ headers | safe }},
-      rows: {{ rows | safe }}
+      header: {{ headers | safe
+  }},
+    rows: {{ rows | safe }}
       };
-    var chart = anychart.column();
-    chart.palette(anychart.palettes.provence);
-    chart.background().fill({
-      keys: ["#0a0a0a", "#00238b", "#0a0a0a"],
-      angle: 130,
-    });
-    chart.data(data);
-    chart.animation(true);
-    chart.yAxis().title('level of Power');
-    chart
-      .labels()
-      .enabled(true)
-      .position('center-top')
-      .anchor('center-bottom');
-    chart.hovered().labels(false);
-    chart.legend().enabled(true).fontSize(13).padding([0, 0, 20, 0]);
-    chart.interactivity().hoverMode('single');
-    chart
-      .tooltip()
-      .positionMode('point')
-      .position('center-top')
-      .anchor('center-bottom')
-      .offsetX(0)
-      .offsetY(5);
-    chart.container('barChartPower');
-    chart.draw();
+  var chart = anychart.column();
+  chart.palette(anychart.palettes.provence);
+  chart.background().fill({
+    keys: ["#0a0a0a", "#00238b", "#0a0a0a"],
+    angle: 130,
+  });
+  chart.data(data);
+  chart.animation(true);
+  chart.yAxis().title('level of Power');
+  chart
+    .labels()
+    .enabled(true)
+    .position('center-top')
+    .anchor('center-bottom');
+  chart.hovered().labels(false);
+  chart.legend().enabled(true).fontSize(13).padding([0, 0, 20, 0]);
+  chart.interactivity().hoverMode('single');
+  chart
+    .tooltip()
+    .positionMode('point')
+    .position('center-top')
+    .anchor('center-bottom')
+    .offsetX(0)
+    .offsetY(5);
+  chart.container('barChartPower');
+  chart.draw();
    });
 
   // Horizontal barChart Power by Alignment
@@ -247,7 +249,7 @@
     series = chart.bar(secondSeriesData);
     series.name('good');
     series.tooltip().position('right').anchor('left-center');
-    
+
     series = chart.bar(firstSeriesData);
     series.name('bad');
     series.tooltip().position('left').anchor('right-center');
@@ -267,7 +269,8 @@
   });
 
   function getData() {
-    return {{ levelOfPower | safe }};
+    return {{ levelOfPower | safe }
+  };
   }
 </script>
 

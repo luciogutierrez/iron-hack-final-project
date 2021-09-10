@@ -36,25 +36,19 @@ imag.img-thumbnail{
 }
 
 a:link {
-  color: yellow;
+  color: magenta !important;
   background-color: transparent;
   text-decoration: none;
 }
 
 a:visited {
-  color: magenta;
+  color: #00FDFF !important;
   background-color: transparent;
   text-decoration: none;
 }
 
-a:hover {
-  color: orange;
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-a:active {
-  color: yellow;
+a:hover, a:active {
+  color: crimson !important;
   background-color: transparent;
   text-decoration: underline;
 }
