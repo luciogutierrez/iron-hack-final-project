@@ -58,6 +58,10 @@ In this section we will develop step-by-step a machine learning model:
 * Model Validation
 <img src="./static/model-processing.png" alt="drawing" height='300' width="900"/>
 
+## Machine Learning Model
+You can review the final product of this project in the following link:
+* [luckgutierrez.pythonanywhere.com](http://luckgutierrez.pythonanywhere.com/)
+
 ## Useful Resources
 * [Marvel's developers web page](https://developer.marvel.com/)
 * [Requests Library Documentation: Quickstart](http://docs.python-requests.org/en/master/user/quickstart/)
