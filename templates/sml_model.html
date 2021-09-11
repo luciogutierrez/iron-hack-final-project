@@ -10,8 +10,7 @@
             <br />
             <div class="title2">1. Model Selection</div>
             <p class="bd-lead">
-                We'll use a Logistic Regression model to predict the probability of the dependent variable "Alignment"
-                coded as 1 for good and 0 for bad.
+                We used a Logistic Regression model to predict the probability that the variable "Alignment" is good or bad.
             </p>
             <br />
         </div>
@@ -22,8 +21,8 @@
             <br />
             <div class="title2">2. Feature engineering</div>
             <p class="bd-lead">
-                Machine learning models admit only numerical values so we have to re-engineering the data by converting
-                categorical values, scaling numeric values and choose those that provide value to the model.
+                Machine learning models admit only numerical values, so we have to re-engineer the data by converting
+                categorical values, scaling numeric values, and choose those that provide value to the model.
             </p>
             <br />
         </div>
@@ -47,7 +46,7 @@
             <div class="subtitle">Gender shape</div>
             <img src="/static/img3.png" width="15%"/>
             <p class="bd-lead">
-                Since in the target set there are no characters with "undefined" gender, we drop those in training set.
+                Since in the target dataset there are no characters with "undefined" gender, we drop those in the training dataset.
             </p>
             <div class="subtitle">Gender reshape</div>
             <img src="/static/img4.png" width="15%"/>
@@ -61,7 +60,7 @@
             <div class="subtitle">Alignment shape</div>
             <img src="/static/img5.png" width="15%"/>
             <p class="bd-lead">
-                Logistic Regression model works with binary variables, so we drop the "neutral" observations in
+                The Logistic Regression model works with binary variables, so we drop the "neutral" observations in
                 dependent variable.
             </p>
             <div class="subtitle">Alignment reshape</div>
@@ -75,7 +74,7 @@
             <br />
             <div class="subtitle">Balance train set</div>
             <p class="bd-lead">
-                As we can see the dependent variable is unbalanced so we proceed to balance it using oversapling method.
+                As we can see, the dependent variable is unbalanced, so we proceed to balance it using oversampling method.
             </p>
             <img src="/static/img7.png" width="15%"/>
             <br />
@@ -87,7 +86,7 @@
             <br />
             <div class="subtitle">Replace dependent values to numeric</div>
             <p class="bd-lead">
-                We replace values good and bad for 1 and 0 respectively.
+                We replace values "good" and "bad" for "1" and "0" respectively.
             </p>
             <img src="/static/img8.png" width="100%"/>
             <br />
@@ -156,7 +155,7 @@
             <br />
             <div class="title2">4. Model Evaluation</div>
             <p class="bd-lead">
-                The F1 classification report indicates that the accuracy prediction for bad is 60% and for good 58%.
+                The F1 classification report indicates that the accurate prediction for bad is 60% and for good 58%.
             </p>
             <img src="/static/img14.png" width="50%"/>
             <br />
@@ -193,7 +192,7 @@
         <div class="col border  border-secondary">
             <br />
             <p class="bd-lead">
-                The model made 89 possitive predictions for good and 77 for bad.
+                The F1 classification report indicates that the accurate prediction for bad is 60% and for good 58%.
             </p>
             <img src="/static/img16.png" width="15%"/>
             <br />
@@ -205,9 +204,9 @@
             <br />
             <div class="title2">6. Model Validation</div>
             <p class="bd-lead">
-                Finally, we validate the model comparing versus the "Alignment" original values in target dataset.
+                Finally, we validate the model comparing versus the "Alignment" original values in the target dataset.
             </p>
-            <img src="/static/img17.png" width="60%"/>
+            <img src="/static/img17.png" width="50%"/>
             <br />
         </div>
     </div>

@@ -13,12 +13,14 @@
         About gender distribution we have that 225 characters are male, 96 are female and
         23 are unclassified.
       </p>
-      <div class="w-50 p-3">
-        <canvas id="barChartGender" width="80%"></canvas>
+      <br />
+      <div style="width:30%">
+        <canvas id="barChartGender" ></canvas>
       </div>
+      <br /> <br />
     </div>
   </div>
-
+  
   <!-- polarChart Alignment distribution -->
   <div class="row">
     <div class="col border border-secondary">
@@ -27,46 +29,50 @@
       <p class="bd-lead">
         The chart shows that 241 are alignment as good while 98 are alignment as bad and 5 are neutral.
       </p>
-      <div class="w-50 p-3">
+      <div style="width:40%">
         <canvas id="polarChartAlignment"></canvas>
       </div>
+      <br /> <br />
     </div>
   </div>
-
+  
   <!-- wordCloud Race distribution -->
   <div class="row">
     <div class="col border border-secondary">
       <br />
       <div class="title2">Race distribution</div>
       <p class="bd-lead">
-        Talking about race we have different kinds like humans, mutants, symbiotes and others, although most of them are
-        undefined.
+        Talking about race we have different kinds like humans, mutants, symbiotes, and others.
       </p>
       <div id="wordCloudRace" style="height: 500px"></div>
     </div>
   </div>
-
+  
   <!-- barChartPower average power -->
   <div class="row">
     <div class="col border border-secondary">
       <br />
       <div class="title2">Level of power by gender</div>
+      <br />
       <p class="bd-lead">
-        The average level of power is higher of the neutral male and bad female have more power than goods.
+        The average level of power is higher of the neutral male, and bad female have more power than goods.
       </p>
       <div id="barChartPower" style="height: 500px"></div>
     </div>
   </div>
-
+  
   <!-- horizaontal barChartPower power -->
   <div class="row">
     <div class="col border border-secondary">
       <br />
       <div class="title2">Level of power by Alignment</div>
-      <p class="bd-lead">The average level of individual power by Alignment</p>
+      <br />
+      <p class="bd-lead">The average level of power individualy by Alignment</p>
       <div id="horizontalBarChartPower" style="height: 500px"></div>
     </div>
   </div>
+  <br /> <br />
+  <br /> <br />
 </div>
 
 {% block javascript %}
@@ -77,15 +83,15 @@
     type: 'doughnut',
     data: {
       labels: {{ labels[0] | safe }},
-  datasets: [{
-    label: 'Female',
-    data: {{ values[0] | safe }},
-    fill: true,
-    lineTension: 0.1,
-    backgroundColor: [
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(255, 206, 86, 0.2)'
+      datasets: [{
+        label: 'Female',
+        data: {{ values[0] | safe }},
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)'
   ],
     borderColor: [
     'rgba(255, 99, 132, 1)',
