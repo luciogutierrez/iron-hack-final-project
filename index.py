@@ -61,6 +61,7 @@ data = pd.read_csv(this_folder + '/outputs/marvel_data.csv')
 # carga data desde archivo.csv
 def get_data_from_csv():
     df = pd.read_csv(this_folder + '/outputs/marvel_heros.csv')
+    df.Description = df.Description.fillna('')
     df = df.sample(frac=1)
     return df
 
