@@ -5,9 +5,9 @@ Alan Scott,good,bad
 Alfred Pennyworth,good,good
 Amazo,bad,good
 Animal Man,good,bad
-Anti-Monitor,bad,bad
+Anti-Monitor,bad,good
 Aquababy,good,bad
-Aqualad,good,good
+Aqualad,good,bad
 Aquaman,good,good
 Arsenal,good,good
 Atom,good,bad
@@ -48,12 +48,12 @@ Chameleon,bad,bad
 Cheetah II,bad,good
 Cheetah III,bad,good
 Colossal Boy,good,bad
-Cyborg,good,good
+Cyborg,good,bad
 Cyborg Superman,bad,good
 Darkseid,bad,bad
 Deadman,good,bad
 Deadshot,bad,good
-Deathstroke,neutral,bad
+Deathstroke,neutral,good
 Doctor Fate,good,bad
 Donna Troy,good,good
 Doomsday,bad,bad
@@ -85,19 +85,19 @@ Huntress,good,good
 Impulse,good,good
 Isis,good,good
 John Stewart,good,bad
-Joker,bad,bad
+Joker,bad,good
 Kid Flash,good,good
 Kid Flash II,good,bad
 Killer Croc,bad,bad
-Kilowog,good,good
+Kilowog,good,bad
 Krypto,good,good
-Lex Luthor,bad,good
+Lex Luthor,bad,bad
 Light Lass,good,good
 Lightning Lad,good,bad
 Lightning Lord,bad,bad
 Magog,good,bad
 Man-Bat,neutral,good
-Martian Manhunter,good,good
+Martian Manhunter,good,bad
 Match,bad,bad
 Maxima,bad,good
 Mera,good,good
@@ -130,7 +130,7 @@ Raven,neutral,good
 Red Arrow,good,good
 Red Hood,neutral,good
 Red Robin,good,good
-Red Tornado,good,good
+Red Tornado,good,bad
 Rick Flag,bad,bad
 Riddler,bad,bad
 Robin II,good,good
